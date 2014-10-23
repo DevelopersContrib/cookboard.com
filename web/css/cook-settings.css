@@ -1,0 +1,185 @@
+/* custom inclusion of right, left and below tabs */
+
+.tabs-below > .nav-tabs,
+.tabs-right > .nav-tabs,
+.tabs-left > .nav-tabs {
+  border-bottom: 0;
+}
+
+.tab-content > .tab-pane,
+.pill-content > .pill-pane {
+  display: none;
+}
+
+.tab-content > .active,
+.pill-content > .active {
+  display: block;
+}
+
+.tabs-below > .nav-tabs {
+  border-top: 1px solid #ddd;
+}
+
+.tabs-below > .nav-tabs > li {
+  margin-top: -1px;
+  margin-bottom: 0;
+}
+
+.tabs-below > .nav-tabs > li > a {
+  -webkit-border-radius: 0 0 4px 4px;
+     -moz-border-radius: 0 0 4px 4px;
+          border-radius: 0 0 4px 4px;
+}
+
+.tabs-below > .nav-tabs > li > a:hover,
+.tabs-below > .nav-tabs > li > a:focus {
+  border-top-color: #ddd;
+  border-bottom-color: transparent;
+}
+
+.tabs-below > .nav-tabs > .active > a,
+.tabs-below > .nav-tabs > .active > a:hover,
+.tabs-below > .nav-tabs > .active > a:focus {
+  border-color: transparent #ddd #ddd #ddd;
+}
+
+.tabs-left > .nav-tabs > li,
+.tabs-right > .nav-tabs > li {
+  float: none;
+}
+
+.tabs-left > .nav-tabs > li > a,
+.tabs-right > .nav-tabs > li > a {
+  min-width: 74px;
+  margin-right: 0;
+  margin-bottom: 3px;
+}
+
+.tabs-left > .nav-tabs {
+  float: left;
+  margin-right: 19px;
+  border-right: 1px solid #ddd;
+}
+
+.tabs-left > .nav-tabs > li > a {
+  margin-right: -1px;
+  -webkit-border-radius: 4px 0 0 4px;
+     -moz-border-radius: 4px 0 0 4px;
+          border-radius: 4px 0 0 4px;
+}
+
+.tabs-left > .nav-tabs > li > a:hover,
+.tabs-left > .nav-tabs > li > a:focus {
+  border-color: #eeeeee #dddddd #eeeeee #eeeeee;
+}
+
+.tabs-left > .nav-tabs .active > a,
+.tabs-left > .nav-tabs .active > a:hover,
+.tabs-left > .nav-tabs .active > a:focus {
+  border-color: #ddd transparent #ddd #ddd;
+  *border-right-color: #ffffff;
+}
+
+.tabs-right > .nav-tabs {
+  float: right;
+  margin-left: 19px;
+  border-left: 1px solid #ddd;
+}
+
+.tabs-right > .nav-tabs > li > a {
+  margin-left: -1px;
+  -webkit-border-radius: 0 4px 4px 0;
+     -moz-border-radius: 0 4px 4px 0;
+          border-radius: 0 4px 4px 0;
+}
+
+.tabs-right > .nav-tabs > li > a:hover,
+.tabs-right > .nav-tabs > li > a:focus {
+  border-color: #eeeeee #eeeeee #eeeeee #dddddd;
+}
+
+.tabs-right > .nav-tabs .active > a,
+.tabs-right > .nav-tabs .active > a:hover,
+.tabs-right > .nav-tabs .active > a:focus {
+  border-color: #ddd #ddd #ddd transparent;
+  *border-left-color: #ffffff;
+}
+.settings-container {
+	height:100%;
+}
+.settings-container .list-group {
+margin-left: 150px;
+}
+.form-setttings .list-group h3 {
+color: #555;
+font-size: 13px;
+font-weight: bold;
+width: 216px;
+padding: 4px 10px 10px 0px;
+margin: 0;
+}
+.form-setttings .list-group section {
+margin-left: 226px;
+margin-top: -29px;
+}
+.form-setttings .setinput {
+background: linear-gradient(#F0F0F0, #F5F5F5) repeat scroll 0% 0% transparent;
+box-sizing: border-box;
+width: 100%;
+border-radius: 3px;
+border: 1px solid #D6D3CE;
+box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.12) inset;
+color: #333;
+font-size: 14px;
+padding: 7px;
+}
+.form-setttings .setinput2 {
+background: linear-gradient(#F0F0F0, #F5F5F5) repeat scroll 0% 0% transparent;
+box-sizing: border-box;
+width: 49%;
+border-radius: 3px;
+border: 1px solid #D6D3CE;
+box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.12) inset;
+color: #333;
+font-size: 14px;
+padding: 7px;
+display:block;
+float:left;
+}
+.form-setttings .list-group .col-md-6, .col-md-4 {
+	padding-left:0px;
+	padding-right:0px;
+}
+.form-setttings .ui-Select {
+border-radius: 6px;
+box-sizing: border-box;
+width: 100%;
+background-color: #F5F5F5;
+border: 1px solid #CFCFCF;
+color: #333;
+cursor: pointer;
+font-weight: bold;
+height: 28px;
+padding: 4px 4px 4px 14px;
+}
+.exclude_from_search {
+    overflow: hidden;
+    font-size: 12px;
+    font-weight: normal;
+    max-width: 340px;
+    display: block;
+	float:right;
+}
+.profileImage {
+    border-radius: 3px;
+    height: 55px;
+    width: 55px;
+}
+.userweblink {
+	display:block;
+	margin-top: 9px;
+}
+.form-setttings .list-group-item hr {
+	margin-bottom:0px;
+	margin-top:10px;
+}

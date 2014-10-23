@@ -1,0 +1,10 @@
+.wrap-search-pageContainer{
+	background-color: #fff;
+	padding: 15px;
+	margin-bottom: 50px;
+}	
+
+.wrap-hideShowLess{
+    height: 125px;
+    overflow: hidden;
+}

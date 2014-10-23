@@ -1,0 +1,103 @@
+/* Large desktop */
+@media (min-width: 1024px) {
+	.bar-custm{
+		min-height: 95px;
+		background: #fff;
+		border-radius: 0;
+		border: none;
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+	}
+	.bar-custm .bar-custm-nav > li > a{
+		height: 95px;
+		padding-top: 35px;
+		padding-bottom: 35px;
+	}
+	.bar-custm .bar-custm-nav > .open > a, .bar-custm .bar-custm-nav > .open > a:hover, .bar-custm .bar-custm-nav > .open > a:focus{
+		background-color: #ffc04c;
+		color: #fff;
+	}
+	.bar-custm .bar-custm-nav > .active > a, .bar-custm .bar-custm-nav > .active > a:hover, .bar-custm .bar-custm-nav > .active > a:focus{
+		height: 95px;
+		padding-top: 35px;
+		padding-bottom: 35px;
+	}
+	.bar-custm .bar-custm-nav > li > a.bar-link-a{
+		transition:all 0.3s ease 0s;
+		padding-top: 20px;
+		text-align: center;
+		text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+		color: #fff !important;
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+	.bar-custm .bar-custm-nav > li:last-child > a.bar-link-a{
+		margin-right: -15px !important;
+	}
+	.bar-custm .bar-custm-nav > li > a.bar-link-a:hover{
+		background: #fff;
+		text-shadow: none;
+	}
+	.bar-custm .bar-custm-nav > li > a.bar-warning{
+		background: #ec971f;
+	}
+	.bar-custm .bar-custm-nav > li > a.bar-warning:hover{
+		color: #ec971f !important;
+	}
+	.bar-custm .bar-custm-nav > li > a.bar-lghtWarning{
+		background:#f0ad4e;
+	}
+	.bar-custm .bar-custm-nav > li > a.bar-lghtWarning:hover{
+		color: #f0ad4e !important;
+	}
+	.bar-link-a i{
+		text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+		font-size: 2em;
+		display: block;
+	}
+	.bar-mwdth{
+		max-width: 85px;
+		display: block;
+	}
+
+	.bar-custm-nav > li > .dropdown-menu{
+		border-top: 3px solid #FF7216;
+	}
+	.bar-custm-nav > li > .dropdown-menu:after{
+		content:"";
+		position:absolute;
+		top:-11px;
+		left:15%;
+		width: 0;
+		height: 0;
+		border-style: solid;border-width: 0 8px 8px 8px;
+		border-color: transparent transparent #FF7216 transparent;
+	}
+	.bar-custm-nav > li > .dropdown-menu.menu-right:after {
+		left:85%;
+	}
+	.logoIndex {
+	    display: inline-block;
+	    max-height: 65px;
+	}
+}
+@media (min-width: 768px) and (max-width: 979px) {
+	.logoIndex{
+		max-height: 30px;
+	}
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+	.logoIndex{
+		max-height: 30px;
+	}
+}
+@media (max-width: 568px) {
+	.logoIndex{
+		max-height: 30px;
+	}
+}
+@media (max-width: 480px) {
+	.logoIndex{
+		max-height: 30px;
+	}
+}

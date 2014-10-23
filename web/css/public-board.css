@@ -1,0 +1,22 @@
+
+.wrap-publicBoard-container{
+	background-color: #fff;
+	margin-bottom: 50px;
+	padding: 15px;
+}
+.wrap-publicBoard-imgUser{
+	border-radius:50%;
+	overflow: hidden;
+	width: 150px;
+	height: 150px;
+	position: relative;
+	margin:auto;
+	box-shadow: 0 0 4px rgba(0,0,0,0.5);
+	background-color: #ddd;
+	border: 5px solid #fff;
+	padding: 10px;
+}
+.wrap-googlemapsContainer{
+	height: 300px;
+	overflow: hidden;
+}

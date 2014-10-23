@@ -1,0 +1,161 @@
+.font-openSans{
+	font-family: "Open Sans",sans-serif;
+}
+.font-raleways{
+	font-family: 'Raleway', sans-serif;
+}
+.font-bold{
+	font-weight: bold;
+}
+.font-300{
+	font-weight: 300;
+}
+.font-400{
+	font-weight: 400;
+}
+.font-500{
+	font-weight: 500;
+}
+.wrap-home-container{
+	color: #fff;
+	font-family: "Raleway",Arial,Helvetica,sans-serif;
+	padding-bottom: 70px;
+}
+.bgTtle-header{
+	font-size: 3em;
+	line-height: 2.5em;
+	font-weight: 300;
+	margin-top: 5px;
+}
+.lead-Sub-desc{
+	font-size: 19px;
+}
+.login-link{
+	color: #fff;
+	text-decoration: underline;
+}
+.login-link:hover{
+	text-decoration: none;
+	color: #fff;
+}
+/* Right Side Search Form */
+.wrap-rightSearchForm{
+	background: #fff;
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+	color: #666;
+	padding: 15px;
+	margin-top: 1em;
+}
+.wrap-rightSearchForm .lead-Sub-desc{
+	font-size: 17px;
+}
+.wrap-loginUser{
+	padding: 15px;
+}
+.link-signIn{
+	font-size: 14px;
+	color: #fff;
+}
+.link-signIn:hover,.link-signIn:focus,.link-signIn:active{
+	color: #fff;
+	text-decoration: none;
+	outline: none;
+}
+/* wrap-home-container-2 */
+.wrap-home-container-2{
+		background: #f0f0fb;
+}
+.logoIndex{
+	display: inline-block;
+	max-height: 65px;
+}
+.logo-link{
+	padding: 15px 15px 15px 0;
+	display: inline-block;
+}
+.paddItem{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+/* Grid Item */
+.wrap-item{
+	border-radius: 5px;
+	background: #ddd;
+	box-shadow: 0 0 1px rgba(0,0,0,0.2);
+	overflow: hidden;
+}
+.ul-wrap-item-info{
+	background-color: #fff;
+	margin-bottom: 0;
+}
+.ul-wrap-item-info li{
+	border-bottom: 1px solid #ddd;
+	padding: 10px 15px;
+	line-height: 1.5em;
+	display: block;
+}
+.ul-wrap-item-info li:last-child{
+	border-bottom: none;
+}
+.ul-wrap-item-info .small-text{
+	font-family: 'Raleway', sans-serif;
+	font-size: 11px;
+	font-weight: 400;
+	text-transform: uppercase;
+	display: block;
+}
+.hghlght-text{
+	font-size: 21px;
+}
+.wrap-item-img-user{
+	max-height: 40px;
+}
+.wrap-item-img-user.wrap-item-img-user-2{
+	background-color: #f0f0f0;
+    border: 1px solid #e1e1e1;
+    padding: 2px;
+}
+.wrap-item-user-info{
+	padding-left: 45px;
+}
+.wrap-item-user-name{
+	color: #b7b7b7;
+	display: block;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 500;
+}
+.text-lightBlck{
+	color: #777;
+	font-weight: bold;
+	display: block;
+	line-height: 0.9em;
+	margin-top: 5px;
+}
+.wrapper-container{
+	position: relative;
+	border: 1px solid transparent;
+	margin-bottom: 30px;
+}
+
+/*footer*/
+.footer {
+	background:#F77F08;
+	padding:20px 0;
+	color:#ffffff;
+}
+#containerSetHeight:before,#containerSetHeight:after{
+	display: table;
+	content: "";
+}
+#containerSetHeight:after{
+	clear: both;
+}
+.wrap-item-img{
+	position: relative;
+}
+.wii-container-solo{
+	text-align: center;
+}
+.wrap-item-img2{
+	height: 153px;
+}

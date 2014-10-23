@@ -1,0 +1,80 @@
+.wrapIndexContainer{
+	background: url('https://s-passets-ec.pinimg.com/webapp/style/app/desktop/images/inspired/bg_pasta_grid.97977794.jpg');
+	background-size: cover;
+	background-position: center;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+	padding: 50px 0 150px;
+}
+.wrapLoginCenter{
+	background-color: #fff;
+	min-height: 300px;
+	box-shadow: 0 0 10px #000;
+	background-image: url("https://s-passets-ec.pinimg.com/webapp/style/app/desktop/images/inspired/bg_collect.b4381ef4.jpg");
+	background-color: #b6aba9;
+	background-size: cover;
+	border-radius: 6px;
+	box-shadow: 0 -5px 8px rgba(0, 0, 0, 0.3);
+	padding-top: 10px;
+	padding-bottom: 30px;
+}
+.logoIndex{
+	display: inline-block;
+	max-height: 100px;
+}
+.text-white{
+	color: #fff;
+	text-shadow: 0 3px 2px #000;
+}
+.marTop0{
+	margin-top: 0;
+}
+.wrapSeparator{
+	height: 30px;
+	color: rgba(0, 0, 0, 0.7);
+	font-weight: bold;
+	left: 0;
+	margin-left: auto;
+	margin-right: auto;
+	opacity: 0.58;
+	position: absolute;
+	right: 0;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	width: 55%;
+}
+.wrapSeparator p:before {
+	background: linear-gradient(to right, rgba(0, 0, 0, 0), #fff) repeat scroll 0 0 rgba(0, 0, 0, 0);
+	margin-right: 4px;
+}
+.wrapSeparator p:before, .wrapSeparator p:after{
+	background: none repeat scroll 0 0 #000;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.48);
+	content: "";
+	display: inline-block;
+	height: 1px;
+	opacity: 0.58;
+	position: relative;
+	vertical-align: middle;
+	width: 40%;
+}
+.wrapHalf-containerCenter{
+	margin-left: auto;
+	margin-right: auto;
+	width: 30%;
+}
+.wrapSeparatorPosition{
+	position: relative;
+	height: 35px;
+}
+.text-bold{
+	font-weight: bold;
+}
+.aLink-terms{
+	color: #fff;
+}
+.aLink-terms:hover{
+	color: #fff;
+}

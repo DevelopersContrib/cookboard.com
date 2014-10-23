@@ -1,0 +1,29 @@
+/* overlay styles, all needed */
+.overlayBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    z-index: 10;
+    transition:all 0.2s linear 0s;
+    opacity: 0.6;
+    display:none;
+}
+
+/* just some content with arbitrary styles for explanation purposes */
+.contentModalBackdrop {
+    width: 300px;
+    height: 200px;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -150px;
+    background-color: #fff;
+    border-radius: 2px;
+    text-align: center;
+    z-index: 11; /* 1px higher than the overlay layer */
+    display:none;
+}

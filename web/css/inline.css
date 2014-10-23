@@ -1,0 +1,11 @@
+.brdr{
+    border: 1px solid;
+}
+body {
+    background-image: url("http://d2qcctj8epnr7y.cloudfront.net/images/jayson/cookboard/bckgrnd.jpg");
+    background-repeat: repeat;
+}
+
+.wrap-home-container {
+    color: #333;
+}

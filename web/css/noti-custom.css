@@ -1,0 +1,12 @@
+.alert-custom{
+	display: inline-block;
+	max-width: 350px;
+}
+.alert-custom-hide{
+	display: none;
+}
+.alert-custom-tl{
+	position: fixed;
+	right: 1%;
+	top: 5%;
+}
