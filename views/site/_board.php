@@ -48,12 +48,16 @@
                                 </span>
                             </li>
                             <?php }?>
+							<?php
+								if(!empty($item->city)){
+							?>
                             <li>
                                 <span class="text-capitalize">
                                     <i class="fa fa-map-marker"></i> 
                                     <?=$item->city?>
                                 </span>
                             </li>
+								<?php }?>
                             <li>
                                 <a class="pull-left" href="<?=\Yii::$app->urlManager->createUrl(['profile/index', 'slug' => $item->user->slug]);?>">
                                 <?php
