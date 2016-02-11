@@ -1,0 +1,124 @@
+@import url(http://weloveiconfonts.com/api/?family=typicons);
+/* typicons */
+[class*="typicons-"]:before {
+  font-family: 'typicons', sans-serif;
+  font-size: 35px;
+vertical-align: -8px;
+margin-right: 3px;
+display: inline-block;
+}
+.brdr{
+	border: 1px solid;
+}	
+a.btn-custom:hover {
+color:#eee;
+}
+.subnow {
+margin-bottom:20px;
+margin-top:20px;
+}
+.subnow h3 {
+margin:10px 5px;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+.premium {
+    padding: 10px;
+    min-height: -webkit-calc(100% - 100px);     /* Chrome */
+    min-height: -moz-calc(100% - 100px);     /* Firefox */
+    min-height: calc(100% - 100px);     /* native */
+}
+.premium .panel-body {
+height: 115px;
+padding: 20px 20px;
+}
+.premium .lead {
+font-size:16px;
+}
+.premium.pinside {
+background-image: url(http://cookboard.com/img/corkboard.jpg); background-repeat:repeat; background-attachment: fixed;
+margin-left: 0px;
+margin-right: 0px;
+border: 2px solid #965501;
+border-radius: 3px;
+margin-bottom:20px;
+}
+.premium .premtitle {
+color:#fff;
+margin-bottom:30px;
+text-shadow:1px 1px 0px rgba(0, 0, 0, 0.5)
+}
+.prembox {
+background: none repeat scroll 0% 0% #fff;
+padding: 5px;
+border-radius: 4px;
+box-shadow: 0px 0px 10px #000;
+}
+.prembox .panel {
+	margin-bottom:0px;
+}
+.footer {
+    position: relative;
+    clear:both;
+}
+.pin {
+  background-color: #aaa;
+  background-image: linear-gradient(left, hsla(0,0%,100%,.2), hsla(0,0%,0%,.2));
+  display: block;
+  height: 2em;
+  left: 50%;
+  margin: -1em -.05em;
+  position: absolute;
+  top: 0%;
+  width: .1em;
+}
+.pin:after {
+  background-color: skyBlue;
+  background-image: radial-gradient(25% 25%, circle, hsla(0,0%,100%,.2), hsla(0,0%,0%,.2));
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.1),
+              inset .2em .2em .2em hsla(0,0%,100%,.2),
+              inset -.2em -.2em .2em hsla(0,0%,0%,.2),
+              1.5em 1.25em .25em hsla(0,0%,0%,.15);
+  content: '';
+  height: .8em;
+  left: -.35em;
+  position: absolute;
+  top: -.65em;
+  width: .8em;
+}
+.pin:before {
+  background-color: hsla(0,0%,0%,.1);
+  box-shadow: 0 0 .25em hsla(0,0%,0%,.1);
+  content: '';
+  height: 1.5em;
+  left: 0;
+  position: absolute;
+  top: .5em;
+  transform: rotate(57.5deg);
+  transform-origin: 50% 100%;
+  width: .1em;
+}
+.premium .rotate1 {
+-webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    -o-transform: rotate(3deg);
+    -ms-transform: rotate(3deg);
+    transform: rotate(3deg);
+}
+.premium .rotate2 {
+-webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    -o-transform: rotate(-3deg);
+    -ms-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+}
+.premium .rotate3 {
+-webkit-transform: rotate(6deg);
+    -moz-transform: rotate(6deg);
+    -o-transform: rotate(6deg);
+    -ms-transform: rotate(6deg);
+    transform: rotate(6deg);
+}

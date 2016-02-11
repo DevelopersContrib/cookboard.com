@@ -40,16 +40,6 @@ class Z extends Component
         endif;
     }
     
-    public function userMeta($usermeta){
-        $metadata = [];
-        foreach($userMeta as $meta){
-            $key = $meta->meta_key;
-            $value = $meta->meta_value;
-            $metadata = array_merge(["$key"=>$value],$metadata);
-        }
-        return $metadata;
-    }
-    
     public function validator($form,
         $items = [
             'id'=>'',

@@ -17,10 +17,12 @@ class PaypalController extends \yii\web\Controller
         $paymentInfo['Order']['theTotal'] = $this->amount;
         $paymentInfo['Order']['description'] = "Some payment description here";
         $paymentInfo['Order']['quantity'] = '1';
-
+        Yii::$app->Paypal->apiUsername = 'row.none_api1.gmail.com';
+        Yii::$app->Paypal->apiPassword = 'ZQYDPZ8ZP2TLTJNK';
+        Yii::$app->Paypal->apiSignature = 'Afr7z7iBpzqRfZrU7G7Sa03nvw2CACebEJqyD.UQfXJcqj6KM2Ahd8Gl';
         // call paypal 
         $result = Yii::$app->Paypal->SetExpressCheckout($paymentInfo); 
-
+        var_dump($result);
         //Detect Errors 
         if(!Yii::$app->Paypal->isCallSucceeded($result)){ 
             if(Yii::$app->Paypal->apiLive === true){
@@ -30,7 +32,7 @@ class PaypalController extends \yii\web\Controller
                 //Sandbox output the actual error message to dive in.
                 $error = $result['L_LONGMESSAGE0'];
             }
-            echo $error;
+            var_dump($error);
             Yii::$app->end();
 
         }else { 

@@ -1,5 +1,5 @@
 .wrap-item-img{
-	 text-align: center;
+	text-align: center;
 }
 .wrap-item-img img{
 	display: inline-block;
@@ -23,12 +23,11 @@
 	margin-bottom: 20px;
 }
 .wrap-descriptionEntryDetails{
-	background-color: #fff;
-	padding: 15px;
-}
-.wded-desc{
-	max-width:90%;
-	margin: auto;
+	margin-bottom: 25px;
+	/*background-color: #fff;
+	padding: 15px;	
+	border-radius: 3px;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);*/
 }
 .wdED-2{
 	margin-bottom: 20px;
@@ -36,12 +35,86 @@
 .wrap-imagePublicUser{
 	border-radius:50%;
 	overflow: hidden;
-	width: 150px;
-	height: 150px;
+	width: 120px;
+	height: 120px;
 	position: relative;
 	margin:auto;
 	box-shadow: 0 0 4px rgba(0,0,0,0.5);
-	background-color: #ddd;
+	background-color: #121212;
 	border: 5px solid #fff;
-	padding: 10px;
+}
+.wrap-userSolocontainer{
+	background-color: #fafafa;
+	padding: 15px;
+}
+.solo-user-link{
+	color: #f0ad4e;
+	transition: all 0.3s ease 0s;
+}
+.solo-user-link:hover{
+	color: #222;
+}
+.solo-user-link:hover,.solo-user-link:focus,.solo-user-link:active{
+	outline: none;
+	text-decoration: none;
+}
+.rate-block-text{
+	font-size: 13px;
+}
+#details-container {
+background-color: #fff;
+padding: 15px;	
+border-radius: 0px;
+border:1px solid #ddd;
+}
+.arrow-left a {
+font-size:50px;
+}
+.arrow-right a {
+font-size:50px;
+}
+.pinned {
+background:-moz-linear-gradient(center top , #FFF, #E8E8E8);
+border:1px solid #ddd;
+padding: 8px 8px 5px 8px;
+display:block;
+margin-bottom:-10px;
+font: bold 15px sans-serif;
+color:#F77F08;
+}
+.pinned img {
+width:20px;
+}
+.establishments {
+margin-top:20px;
+}
+.establishments li {
+background: #f5f5f5;
+border: 1px solid #ddd;
+padding: 5px;
+}
+.establishments li img {
+width:20px;
+}
+/* related entry thumbnails */
+.wrap-thumbnails-box h2 {
+margin:0px;
+font-size:26px;
+}
+.wrap-thumbnails {
+margin-bottom: 40px;
+text-align: center;
+background: #fff;
+padding: 15px;
+border: 1px solid #dedede;
+}
+.wrap-thumbnails img {
+width: 88px;
+height: 88px;
+margin: 2px 2px;
+border: 1px solid #999;
+padding: 2px;
+}
+.wrap-thumbnails img:hover {
+opacity:0.6;
 }

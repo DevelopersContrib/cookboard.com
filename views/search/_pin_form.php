@@ -40,7 +40,9 @@ $this->registerCss('
                         ['template'=>'{label}<span class="sr-only">Description</span>{input}{hint}{error}','options' => ['class' => 'fcol cb-new ']])
                             ->textarea(['class'=>'form-control user-input','rows' => 5]) ?>
                             
-                      
+                      <?php
+                    if(Yii::$app->user->identity->type==\app\models\UserModel::PREMIUM){
+                ?>
                         <div class="form-group fcol cb-new">                            
                             <?=Html::activeRadioList($cookboard, 'featured', [1 => 'Featured', 0 => 'Not Featured'], [
                                 'item' => function ($index, $label, $name, $checked, $value) {
@@ -48,6 +50,19 @@ $this->registerCss('
                                         Html::radio($name, $checked, ['value'  => $value,'id'=>'featured'.$value]) . $label . '</label>';
                                 }
                             ])?>
+                         <?php }?>
+                        <hr>
+                <?= $form->field($cookboard, 'facebook',
+                    ['template'=>'Facebook<span class="sr-only control-label">Facebook</span>{input}{hint}{error}','options' => ['class' => 'fcol cb-new ']])
+                    ->textInput(['class'=>'form-control user-input','maxlength' => 255]) ?>
+                
+                <?= $form->field($cookboard, 'instagram',
+                    ['template'=>'Instagram<span class="sr-only control-label">Instagram</span>{input}{hint}{error}','options' => ['class' => 'fcol cb-new ']])
+                    ->textInput(['class'=>'form-control user-input','maxlength' => 255]) ?>
+                
+                <?= $form->field($cookboard, 'pinterest',
+                    ['template'=>'Pinterest<span class="sr-only control-label">Pinterest</span>{input}{hint}{error}','options' => ['class' => 'fcol cb-new ']])
+                    ->textInput(['class'=>'form-control user-input','maxlength' => 255]) ?>
                             <input type="hidden" name="action" value="save" />
                             <input id="be_id" name="CookBoardPin[board_entry_id]" type="hidden" value="" >
                         </div>
@@ -65,7 +80,22 @@ $this->registerCss('
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button id="submit-pin" type="button" class="btn btn-warning">Pin It!</button>
           </div>
+		  <div style="clear:both"></div>
         </div>
     <?php ActiveForm::end(); ?>
   </div>
 </div>
+
+<?php $this->registerJsFile(Yii::$app->homeUrl.'js/search/_pin_form.js',['depends' => 'yii\web\AssetBundle'] );?>
+<style>
+.modal-content {
+	box-shadow:none;
+	border-radius: 6px 6px 0px 0px;
+	border: none;
+	padding-bottom: 20px;
+}
+.footbg {
+	background:#ffffff;
+	border-radius: 0px 0px 6px 6px;
+}
+</style>

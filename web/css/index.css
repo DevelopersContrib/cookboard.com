@@ -63,7 +63,7 @@
 }
 /* wrap-home-container-2 */
 .wrap-home-container-2{
-		background: #f0f0fb;
+		background: #F0EEE5;
 }
 .logoIndex{
 	display: inline-block;
@@ -74,15 +74,23 @@
 	display: inline-block;
 }
 .paddItem{
-	padding-top: 15px;
-	padding-bottom: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 /* Grid Item */
 .wrap-item{
-	border-radius: 5px;
-	background: #ddd;
-	box-shadow: 0 0 1px rgba(0,0,0,0.2);
+	border-radius: 0px;
+	background: #fff;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
 	overflow: hidden;
+	padding:0px;
+}
+.wrap-item:hover {
+	box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+-webkit-transition: all 0.3s ease-in-out;
+-moz-transition: all 0.3s ease-in-out;
+-o-transition: all 0.3s ease-in-out;
+transition: all 0.3s ease-in-out;
 }
 .ul-wrap-item-info{
 	background-color: #fff;
@@ -109,6 +117,9 @@
 }
 .wrap-item-img-user{
 	max-height: 40px;
+	margin-right: 5px;
+	width:40px;
+	height:40px;
 }
 .wrap-item-img-user.wrap-item-img-user-2{
 	background-color: #f0f0f0;
@@ -142,6 +153,15 @@
 	background:#F77F08;
 	padding:20px 0;
 	color:#ffffff;
+	display: block;
+	width: 100%;
+}
+.footer .footer-credit .col-md-6 {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+.footer .footer-credit .col-md-6 .label {
+	font-size: 80% !important;
 }
 #containerSetHeight:before,#containerSetHeight:after{
 	display: table;
@@ -158,4 +178,59 @@
 }
 .wrap-item-img2{
 	height: 153px;
+}
+.ptoc {
+background:#fff;
+padding:10px 25px;
+}
+/**/
+@media only screen and (min-device-width : 320px){
+	.footer .footer-credit .col-md-6 {
+		float:left !important;
+	}
+}
+@media only screen and (min-device-width : 320px){
+	.footer  {
+		
+	}
+}
+
+.ul-wrap-item-info li:nth-child(1){
+	background: #333;
+	color:#fff;
+	font-size:17px;
+}
+.htop {
+background:#fff;
+margin-bottom:20px;
+box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+.navbar {
+margin-bottom:0px;
+}
+
+.backstretch {
+margin-top:-20px !important;
+}
+.wrap-home-container-2 {
+margin-top:-20px;
+}
+.btn-warning {
+background-color:#EC971F !important;
+}
+.breadcrumb {
+border-radius:0px;
+box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+}
+@media (min-width: 1280px) {
+  .container {
+    width: 1250px !important;
+  }
+}
+@media (min-width: 1280px) {
+	.col-lg-3 {
+	width:20% !important;
+	padding-left:10px;
+	padding-right:10px;
+	}
 }

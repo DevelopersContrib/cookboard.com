@@ -1,4 +1,4 @@
-<div class="col-xs-6 col-md-4">
+<div class="col-md-6 col-md-4">
     <div class="profile-right">
             <div class="profile-img">
                 <?php
@@ -18,14 +18,15 @@
             <h5><a href="javascript:;"><?=$profile->username?></a></h5>
 <!--            <p class="propoints"><b>1,250</b> Pts</p>
             <p>Joined <b>7 days ago</b></p>-->
-            <p class="location"><span>Location:</span> <?=$metadata['location']?></p>
-            <p class="pwebsite"><b>Website:</b><a target="_blank" href="<?=$metadata['website']?>"> <?=$metadata['website']?></a></p>
+            <p class="location"><span>Location:</span> <?=!empty($metadata['location'])?$metadata['location']:'';?></p>
+            <p class="pwebsite"><b>Website:</b><a target="_blank" href="<?=!empty($metadata['website'])?$metadata['website']:''?>"> <?=!empty($metadata['website'])?$metadata['website']:''?></a></p>
             <div style="clear:both"></div>
             <div class="profile-about-me">
                     <h4>About:</h4>
-                    <p><?=$metadata['about']?></p>
+                    <p><?=!empty($metadata['about'])?$metadata['about']:''?></p>
             </div>				
     </div>
+    <?php if(!empty($metadata['location']) || !empty($metadata['latlng'])){?>
     <div class="profile-right">
             <div class="profile-map">
                     <h3>My Location</h3>
@@ -35,6 +36,11 @@
                     <div style="clear:both"></div>
             </div>
     </div>
+    <?php }?>
 </div>
-<?php $this->registerJsFile('http://maps.google.com/maps/api/js?sensor=false',['depends' => 'yii\web\AssetBundle'] ); ?>
-<?php $this->registerJsFile(Yii::$app->homeUrl.'js/profile/_index_right.js',['depends' => 'yii\web\AssetBundle'] ); ?>
+<?php 
+    if(!empty($metadata['location']) || !empty($metadata['latlng'])){
+        $this->registerJsFile(Yii::$app->homeUrl.'js/site/map.js',['depends' => 'yii\web\AssetBundle'] );
+        $this->registerJs($this->render('_index_right_js.php',['metadata'=>$metadata])); 
+    }
+?>

@@ -1,14 +1,18 @@
 <?php
-    $item = $pin->boardEntry;
+    //$item = $pin->boardEntry;
+    $item = $pin->pinBoardEntry
 ?>
 <div id="pin-<?=$pin->id?>" data-title='<?=ucwords($item->name)?>' class="col-xs-12 col-sm-6 col-lg-3 paddItem wcca item board">
     <div class="wrap-item">
         <div class="wrap-item-img wrap-item-img2">
             <?php
-                $photos = $item->boardEntryPhotoList;
+                $photos = $item->boardEntryPhoto;
                 $img = 'http://d2qcctj8epnr7y.cloudfront.net/images/jayson/cookboard/colored-icon.png';
                 if(count($photos)>0){
-                    $img = Yii::$app->homeUrl.reset($photos);
+                    //$img = Yii::$app->homeUrl.reset($photos);
+                    $img = $photos[0];
+                    
+                    $img = $img->external?$img->photo:Yii::$app->homeUrl.$img->photo;
                 }
             ?>
             <img class="img-responsive img-cntre" alt="name of image" src="<?=$img;?>">
@@ -20,7 +24,7 @@
                 <img class="img-responsive" src="http://d2qcctj8epnr7y.cloudfront.net/images/jayson/cookboard/colored-icon.png">
                 <ul class="list-inline ul-wcca-btn-actions text-center">
                     <li>
-                        <a href="<?=Yii::$app->urlManager->createUrl(['boardentry/details', 'id' => $item->id]);?>" 
+                        <a href="<?=Yii::$app->urlManager->createUrl(['boardentry/details','cookboard'=> $parent_cookboard->slug, 'slug' => $item->slug]);?>" 
                            class="wcca-btn-actions wcca-btn-actions1" data-toggle="tooltip" data-placement="top" title="View Entry">
                             <i class="fa fa-search"></i>
                         </a>
@@ -42,6 +46,7 @@
                     <?php echo $item->name?>
                 </span>
             </li>
+            <?php if($item->post_type===app\models\BoardEntry::POST_TYPE_FOR_SALE){?>
             <li>
                 <span class="text-capilize">
                     <!--<i class="fa fa-rub"></i>-->
@@ -50,16 +55,12 @@
                     </span>
                 </span>
             </li>
+            <?php }?>
             <li>
                 <span class="text-capitalize">
                     <i class="fa fa-map-marker"></i> 
-                    <?php echo $item->city?>
-                </span>
-            </li>
-            <li>
-                <span class="text-capitalize">
-                    <i class="fa fa-map-marker"></i> 
-                    Pinned from <?=$item->cookboard->name?>
+                    <?php /*?>Pinned from <a href="<?=\Yii::$app->urlManager->createUrl(['cookboard/details', 'slug' => $parent_cookboard->slug]);?>"><?=$item->cookboard->name?></a><?php */?>
+					Pinned from <a href="<?=\Yii::$app->urlManager->createUrl(['cookboard/details', 'slug' => $item->cookboard->slug]);?>"><?=$item->cookboard->name?></a>
                 </span>
             </li>
         </ul>

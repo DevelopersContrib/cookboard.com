@@ -9,6 +9,10 @@ Cookboard.Details = {
         El.id = jQuery('.' + id).attr('id');
         El.obj = jQuery('.' + id);
 
+        El.find('.add-entry').on('click',function(){
+            gDetailsAddEntryModal.show(jQuery(this).attr('data-id'));
+        });
+        
         El.find('.delete-entry').on('click',function(){
             if (confirm("Are you sure you want to delete this?")) {
                 var id = jQuery(this).attr('id');
@@ -47,6 +51,34 @@ Cookboard.Details = {
                             var title = El.find('#pin-'+id).attr('data-title');
                             El.remove('#pin-'+id);
                             gNotify(title+' has been deleted successfully!');
+                        }
+                    }
+                }).complete(function () {
+                    gLoading(false);
+                });
+            }
+        });
+
+        
+        jQuery('.edit-cookboard').off('click').on('click',function(){
+            gFormCookboard.clear();    
+            gFormCookboard.show(jQuery(this).attr('id'));
+        });
+        
+        jQuery('.delete-cookboard').off('click').on('click',function(){
+            var id = jQuery(this).attr('id');
+            if (confirm("Are you sure you want to delete this?")) {
+                
+                gLoading('Deleting...');
+                jQuery.ajax({
+                    type: "post",
+                    dataType: "json",
+                    url: gFormCookboard.obj.find('form').attr("action"),
+                    data: {action:'delete',id:id},
+                    success: function(data){
+                        gLoading(false);
+                        if(data.status){
+                            window.location = El.baseUrl+'cookboard';
                         }
                     }
                 }).complete(function () {

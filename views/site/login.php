@@ -4,23 +4,24 @@
 ?>
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-xs-offset-2 wrapLoginCenter">
+		<div class="col-xs-12">
+        <div class="wrapLoginCenter">
             <div class="clearfix"></div>
-            <a href="javascript:;" class="btn btn-default pull-right">Log in</a>
-            <div class="text-center">
+            <a href="javascript:;" class="btn btn-warning pull-right" style="margin-right:10px;display:none;">Log in</a>
+            <div class="col-xs-12 text-center">
                 <img class="logoIndex img-responsive" src="http://d2qcctj8epnr7y.cloudfront.net/images/2013/logo-CookBoard-2.png">
                 <?php
 					//if (Yii::$app->getSession()->hasFlash('error')) {
 						//echo '<div class="alert alert-danger">'.Yii::$app->getSession()->getFlash('error').'</div>';
 					//}
 				?>
-				<h2 class="marTop0 text-white">
-                        He used Cookboard to start his collection 
+				<h2 class="marTop0 text-white tdesc">
+                    Make new friends. Taste new dishes. All fresh. All local.  
                 </h2>
-                <p class="text-white">
-                        Join Cookboard to find (and save!) all the things that inspire you. 
+                <p class="text-white sdesc">
+                    Join our Food Loving Community as Cook or a Foodie 
                 </p>
-                <div class="wrapHalf-containerCenter">
+                <div class="col-md-6 col-md-offset-3 wrapHalf-containerCenter">
                     <div class="form-group">
                         <a id="login-fb" href="javascript:;" class="btn btn-primary btn-block"> 
                                 <i class="fa fa-facebook"></i>
@@ -45,7 +46,7 @@
                 </div>
                 <?php */?>
                 <div class="clearfix"></div>
-                <div class="wrapHalf-containerCenter">
+                <div class="col-md-6 col-md-offset-3 wrapHalf-containerCenter">
                     <?php /*?>
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Email">
@@ -67,7 +68,9 @@
                     </div>
                 </div>
             </div>
+			<div class="clearfix"></div>
         </div>
+		</div>
     </div>
 </div>
 <?php

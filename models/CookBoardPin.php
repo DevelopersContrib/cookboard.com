@@ -16,6 +16,7 @@ use Yii;
 class CookBoardPin extends \yii\db\ActiveRecord
 {
     public $temp_cook_board_id;
+    public $temp_board_entry_id;
     /**
      * @inheritdoc
      */
@@ -60,8 +61,17 @@ class CookBoardPin extends \yii\db\ActiveRecord
     
     public function afterSave($insert, $changedAttributes )
     {
-        $cookboard = CookBoard::findOne($this->cook_board_id);
-        $cookboard->update();
+        //update cookboard count
+        if($insert){
+            $cookboardItems = new CookBoardItems();
+            $cookboardItems->user_id = Yii::$app->user->getId();
+            $cookboardItems->cook_board_id = $this->cook_board_id;
+            $cookboardItems->pin_board_entry_id = $this->board_entry_id;
+            $cookboardItems->save();
+            
+            $cookboard = CookBoard::findOne($this->cook_board_id);
+            $cookboard->update();
+        }
         return true;
     }
     
@@ -69,6 +79,7 @@ class CookBoardPin extends \yii\db\ActiveRecord
     {
         if (parent::beforeDelete()) {
             $this->temp_cook_board_id = $this->cook_board_id;
+            $this->temp_board_entry_id = $this->board_entry_id;
             return true;
         } else {
             return false;
@@ -77,6 +88,11 @@ class CookBoardPin extends \yii\db\ActiveRecord
 
     public function afterDelete()
     {
+        if(($cookboardItem = CookBoardItems::findOne(['pin_board_entry_id'=>$this->board_entry_id,
+            'cook_board_id'=>$this->temp_cook_board_id,'user_id'=>Yii::$app->user->getId()]))!==null){
+                $cookboardItem->delete();
+            }
+            
         $cookboard = CookBoard::findOne($this->temp_cook_board_id);
         $cookboard->update();
         return true;

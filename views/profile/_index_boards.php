@@ -1,48 +1,50 @@
-<?php /*?>
-<div class="col-md-4" >
-    <div class="panel panel-default">
-      <div class="panel-heading">Sample Board #1</div>
-      <div class="panel-body">
-            <img class="img-responsive" src="http://media-cache-ec0.pinimg.com/236x/4c/78/3c/4c783c102e3fbb294e163ba50f9e969a.jpg">
-      </div>						  
-      <div class="panel-body bcontent">
-            Stack of Grilled Cheese” sandwich at 47 Scott, as seen on Esquire magazine's Food For Men blog
-      </div>
-      <div class="panel-body bcontent">
-            <a class="pull-left">
-                <img class="img-responsive img-circle wrap-item-img-user" src="http://media-cache-ec0.pinimg.com/avatars/abcipriano_1378357861_140.jpg">
-            </a>
-            <div class="wrap-item-user-info">
-                <span class="text-lightBlck">
-                    Uploaded by
-                </span>
-                <span class="text-capitalize wrap-item-user-name">
-                    Thomas Morato
-                </span>
-            </div>
-      </div>
-    </div>
-</div>
-<div style="clear:both"></div>
-<?php */?>
-
 <div id="board-<?php echo $item->id;?>" data-title="<?=$item->name?>" class="col-xs-12 col-sm-6 col-lg-3 paddItem wcca board">
     <div class="wrap-cookboard-container-album">
         <div class="wrap-block wcca-alink" title="<?=$item->name?>">
             <?php
-                $entries = $item->boardEntryList;
-                $img = '<img src="http://d2qcctj8epnr7y.cloudfront.net/images/jayson/cookboard/grayscaled-icon.png" alt="no image upload" class="img-responsive no-img-upload">';
-
+                $img = '';
+                foreach($item->items as $item_){
+                    if(!empty($item_->board_entry_id)){
+                        $entry = $item_->boardEntry;
+                    }else if(!empty($item_->pin_board_entry_id)){
+                        $entry = $item_->pinBoardEntry;
+                    }
+                    
+                    $photos = $entry->boardEntryPhoto;
+                    if(count($photos)>0){
+                        $photo = $photos[0];
+                        $img = $photo->external?$photo->photo:Yii::$app->homeUrl.$photo->photo;
+                        $img = '<img src="'.$img.'" alt="no image upload" class="img-responsive">';
+                        break;
+                    }
+                }
+            
+                /*$entries = $item->boardEntryList;
+                $img = '';
                 if(count($entries)>0){
                     foreach($item->boardEntry as $entry){
-                        $photos = $entry->boardEntryPhotoList;
+                        $photos = $entry->boardEntryPhoto;
                         if(count($photos)>0){
-                            $img = Yii::$app->homeUrl.reset($photos);
+                            $photo = $photos[0];
+                            //$img = Yii::$app->homeUrl.reset($photos);
+                            $img = $photo->external?$photo->photo:Yii::$app->homeUrl.$photo->photo;
+                            $img = '<img src="'.$img.'" alt="no image upload" class="img-responsive">';
+                            break;
+                        }
+                    }
+                }else if(empty($img)){ //pin
+                    foreach($item->cookBoardPin as $entry){
+                        $photos = $entry->boardEntry->boardEntryPhoto;
+                        if(count($photos)>0){
+                            $photo = $photos[0];
+                            $img = $photo->external?$photo->photo:Yii::$app->homeUrl.$photo->photo;
                             $img = '<img src="'.$img.'" alt="no image upload" class="img-responsive">';
                             break;
                         }
                     }
                 }
+                 */
+                $img = !empty($img)?$img:'<img src="http://d2qcctj8epnr7y.cloudfront.net/images/jayson/cookboard/grayscaled-icon.png" alt="no image upload" class="img-responsive no-img-upload">';
             ?>
             <div class="wrap-block wcca-img-featured">
                 <?=$img;?>
@@ -60,7 +62,7 @@
                 <img class="img-responsive" src="http://d2qcctj8epnr7y.cloudfront.net/images/jayson/cookboard/colored-icon.png">
                 <ul class="list-inline ul-wcca-btn-actions">
                     <li>
-                        <a href="<?=Yii::$app->urlManager->createUrl(['cookboard/details', 'id' => $item->id]);?>" class="wcca-btn-actions wcca-btn-actions1">
+                        <a href="<?=Yii::$app->urlManager->createUrl(['cookboard/details', 'slug' => $item->slug]);?>" class="wcca-btn-actions wcca-btn-actions1">
                             <i class="fa fa-search"></i>
                         </a>
                     </li>

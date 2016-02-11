@@ -2,13 +2,32 @@
     <div class="wrap-cookboard-container-album">
         <div class="wrap-block wcca-alink" title="<?=$item->name?>">
             <?php
-                $entries = $item->boardEntryList;                
                 $img = '';
+                foreach($item->items as $item_){
+                    if(!empty($item_->board_entry_id)){
+                        $entry = $item_->boardEntry;
+                    }else if(!empty($item_->pin_board_entry_id)){
+                        $entry = $item_->pinBoardEntry;
+                    }
+                    
+                    $photos = $entry->boardEntryPhoto;
+                    if(count($photos)>0){
+                        $photo = $photos[0];
+                        $img = $photo->external?$photo->photo:Yii::$app->homeUrl.$photo->photo;
+                        $img = '<img src="'.$img.'" alt="'.$entry->name.'" class="img-responsive">';
+                        break;
+                    }
+                }
+                /*
+                $entries = $item->boardEntryList;                
+                
                 if(count($entries)>0){
                     foreach($item->boardEntry as $entry){
-                        $photos = $entry->boardEntryPhotoList;
+                        $photos = $entry->boardEntryPhoto;
                         if(count($photos)>0){
-                            $img = Yii::$app->homeUrl.reset($photos);
+                            //$img = Yii::$app->homeUrl.reset($photos);
+                            $photo = $photos[0];
+                            $img = $photo->external?$photo->photo:Yii::$app->homeUrl.$photo->photo;
                             $img = '<img src="'.$img.'" alt="'.$entry->name.'" class="img-responsive">';
                             break;
                         }
@@ -18,15 +37,20 @@
                     $pins = $item->cookBoardPin;                
                     if(count($pins)>0){
                         foreach($pins as $pin){
-                            $photos = $pin->boardEntry->boardEntryPhotoList;
+                            //$photos = $pin->boardEntry->boardEntryPhotoList;
+                            $photos = $pin->boardEntry->boardEntryPhoto;
                             if(count($photos)>0){
-                                $img = Yii::$app->homeUrl.reset($photos);
+                                //$img = Yii::$app->homeUrl.reset($photos);
+                                $photo = $photos[0];
+                                $img = $photo->external?$photo->photo:Yii::$app->homeUrl.$photo->photo;
                                 $img = '<img src="'.$img.'" alt="'.$pin->boardEntry->name.'" class="img-responsive">';
                                 break;
                             }
                         }
                     }
                 }
+                */
+                
                 $img = empty($img)?$img = '<img src="http://d2qcctj8epnr7y.cloudfront.net/images/jayson/cookboard/grayscaled-icon.png" alt="no image upload" class="img-responsive no-img-upload">':$img;
             ?>
             <div class="wrap-block wcca-img-featured">
@@ -45,7 +69,7 @@
                 <img class="img-responsive" src="http://d2qcctj8epnr7y.cloudfront.net/images/jayson/cookboard/colored-icon.png">
                 <ul class="list-inline ul-wcca-btn-actions">
                     <li>
-                        <a href="<?=Yii::$app->urlManager->createUrl(['cookboard/details', 'id' => $item->id]);?>" class="wcca-btn-actions wcca-btn-actions1">
+                        <a href="<?=Yii::$app->urlManager->createUrl(['cookboard/details', 'slug' => $item->slug]);?>" class="wcca-btn-actions wcca-btn-actions1">
                             <i class="fa fa-search"></i>
                         </a>
                     </li>

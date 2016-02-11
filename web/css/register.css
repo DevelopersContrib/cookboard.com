@@ -1,25 +1,23 @@
 .wrapIndexContainer{
-	background: url('https://s-passets-ec.pinimg.com/webapp/style/app/desktop/images/inspired/bg_pasta_grid.97977794.jpg');
+	background: url('http://rdbuploads.s3.amazonaws.com/uploads/cookboard/cookboard-photoshoot.jpg');
 	background-size: cover;
 	background-position: center;
-	position: fixed;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	top: 0;
-	padding: 50px 0 150px;
+	padding: 100px 0 150px;
+	position:absolute;
 }
 .wrapLoginCenter{
 	background-color: #fff;
 	min-height: 300px;
 	box-shadow: 0 0 10px #000;
-	background-image: url("https://s-passets-ec.pinimg.com/webapp/style/app/desktop/images/inspired/bg_collect.b4381ef4.jpg");
-	background-color: #b6aba9;
-	background-size: cover;
+	background: none repeat scroll 0px 0px rgba(0, 0, 0, 0.5);
 	border-radius: 6px;
 	box-shadow: 0 -5px 8px rgba(0, 0, 0, 0.3);
 	padding-top: 10px;
-	padding-bottom: 30px;
+	padding-bottom: 40px;
 }
 .logoIndex{
 	display: inline-block;
@@ -60,11 +58,6 @@
 	vertical-align: middle;
 	width: 40%;
 }
-.wrapHalf-containerCenter{
-	margin-left: auto;
-	margin-right: auto;
-	width: 30%;
-}
 .wrapSeparatorPosition{
 	position: relative;
 	height: 35px;
@@ -77,4 +70,24 @@
 }
 .aLink-terms:hover{
 	color: #fff;
+}
+.wrapLoginCenter .sdesc {
+	font-size:20px;
+	margin-bottom:40px;
+}
+.wrapHalf-containerCenter .btn {
+	font-size:21px;
+}
+@media all and (max-width: 600px) {
+    .wrapLoginCenter {
+        margin-left:0px !important;
+    }
+}
+@media all and (max-width: 600px) {
+    .wrapHalf-containerCenter .btn {
+    font-size: 15px;
+	}
+	.wrapIndexContainer {
+	padding-top:20px;
+	}
 }

@@ -53,16 +53,37 @@ class CookboardController extends Controller
             ]);
     }
     
-    public function actionDetails($id)
+    public function actionDetails($slug)
     {
-        $model = $this->findModel($id);
+        //$model = $this->findModel($id);
+		$cookboard = new CookBoard(); //to generate form
+        $cookboard->featured = 0;
+        $model = $this->findModel(['slug'=>$slug]);
+
         return $this->render('details', [
-            'model' => $this->findModel($id),
+			'cookboard'=>$cookboard,
+			'cookboardlist'=> //select from cookboard
+                CookBoard::find()->where(['user_id' => $model->user_id ])->all(),
+            'model' => $model,
             'pins'=> CookBoardPin::findAll([
                 'user_id' => $model->user_id,
-                'cook_board_id'=>$id
+                'cook_board_id'=>$model->id
             ])
         ]);
+    }
+	
+	public function actionMap($slug)
+    {
+        $model = $this->findModel(['slug'=>$slug]);
+        return $this->render('popup_map', [
+            'model' => $model
+        ]);
+    }
+    
+    public function actionDelete()
+    {
+        Yii::$app->session->setFlash('msg', 'Deleted successfully!');
+        return $this->redirect(['index']);
     }
     
     /*
@@ -93,12 +114,21 @@ class CookboardController extends Controller
             //$post['CookBoard']['user_id'] = $userid;
         }
         
+        if(Yii::$app->user->identity->type!=\app\models\UserModel::PREMIUM){
+            $post['CookBoard']['featured'] = CookBoard::NOT_FEATURED;
+        }
+                
         if ($model->load($post) && $model->save() && $model!==null) {
             if($update){
-                \Yii::$app->response->format = \yii\web\Response::FORMAT_HTML;
-                return $this->renderPartial('_board',['item'=>$this->findModel($model->id)]);
+                if(!empty($post['type']) && $post['type'] === 'json'){
+                    Yii::$app->session->setFlash('msg', $model->name.' has been updated successfully!');
+                    return Cookboard::find()->where(['id' => $model->id])->asArray()->one();
+                }else{
+                    \Yii::$app->response->format = \yii\web\Response::FORMAT_HTML;
+                    return $this->renderPartial('_board',['item'=>$this->findModel($model->id)]);
+                }
             }else{
-                return ['status'=>true,'id'=>$model->id];
+                return ['status'=>true,'id'=>$model->id,'slug'=>$model->slug];
             }
         }
         throw new NotFoundHttpException('The requested page does not exist.');

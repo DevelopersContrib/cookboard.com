@@ -1,0 +1,236 @@
+/* Large desktop */
+
+.modal2{
+	border-radius: 0;
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15);
+	
+}
+.modal2:after,.modal2:before{
+	background-color: #fff;
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+	content: "";
+	display: block;
+	height: 100%;
+	left: 0px;
+	position: absolute;
+	visibility: visible;
+	width: 100%;
+	z-index: -1;
+}
+.modal2:after{
+	/* background: url("http://d2qcctj8epnr7y.cloudfront.net/images/2013/bg-contrib-big2.png") no-repeat scroll center center / cover #eee; */
+	background:rgb(238,238,238);
+	top: 0;
+	transform: rotate(1.2deg);
+	z-index: -1;
+}
+.modal2:before{
+	top: 0;
+	transform: rotate(-1.2deg);
+	z-index: -2;
+}
+.mh-2{
+	border-bottom: none;
+	margin-top: 10px;
+}
+.mb-2{
+	max-height: 780px;
+}
+.close.close-2{
+	font-size: 35px;
+}
+.wrap-form{
+	padding: 5px 15px 30px;
+	width:480px;
+	margin: auto;
+	background-color: rgba(255,255,255,0.8);
+}
+.wrap-form2{
+	padding: 5px 15px 30px;
+	width:480px;
+	margin: auto;
+	background-color: rgba(255,255,255,0.8);
+}
+/* Radio Button */
+/* Hiding default checkbox and Radio button design */
+input[type=checkbox],input[type=radio] {
+	opacity: 0;
+	position: absolute;
+	z-index: 12;
+	width: 18px;
+	height: 18px;
+}
+/* Disable outline when clicked*/
+input[type=checkbox]:checked,input[type=radio]:checked,input[type=checkbox]:focus,input[type=radio]:focus {
+	outline: none !important;
+}
+
+input[type=checkbox]+.lbl,input[type=radio]+.lbl {
+	position: relative;
+	z-index: 11;
+	display: inline-block;
+	margin: 0;
+	line-height: normal;
+	min-height: 12px;
+	min-width: 12px;
+	font-weight: normal;
+}
+input[type=checkbox]+.lbl.padding-16::before,input[type=radio]+.lbl.padding-16::before {
+	margin-right: 16px;
+}
+
+input[type=checkbox]+.lbl.padding-12::before,input[type=radio]+.lbl.padding-12::before {
+	margin-right: 12px;
+}
+
+input[type=checkbox]+.lbl.padding-8::before,input[type=radio]+.lbl.padding-8::before {
+	margin-right: 8px;
+}
+
+input[type=checkbox]+.lbl.padding-4::before,input[type=radio]+.lbl.padding-4::before {
+	margin-right: 4px;
+}
+
+input[type=checkbox]+.lbl.padding-0::before,input[type=radio]+.lbl.padding-0::before {
+	margin-right: 0px;
+}
+/* Basic Checkbox styles */
+input[type=checkbox]+.lbl::before,input[type=radio]+.lbl::before {
+	font-family: fontAwesome;
+	font-weight: normal;
+	font-size: 11px;
+	color: #2091cf;
+	content: "\a0";
+	background-color: #FAFAFA;
+	border: 1px solid #CCC;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	border-radius: 0;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	height: 12px;
+	line-height: 11px;
+	min-width: 12px;
+	margin-right: 1px;
+	margin-top: -5px;
+}
+
+/* Checked state styles */
+input[type=checkbox]:checked+.lbl::before,input[type=radio]:checked+.lbl::before {
+	display: inline-block;
+	content: '\f00c';
+	background-color: #F5F8FC;
+	border-color: #adb8c0;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05),inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+}
+
+/* Hover state styles */
+input[type=checkbox]:hover+.lbl::before,input[type=radio]:hover+.lbl::before,input[type=checkbox]+.lbl:hover::before,input[type=radio]+.lbl:hover::before {
+	border-color: #1c7aad;
+}
+
+/* Shadow when checked or Active */
+input[type=checkbox]:active+.lbl::before,input[type=radio]:active+.lbl::before,input[type=checkbox]:checked:active+.lbl::before,input[type=radio]:checked:active+.lbl::before {
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Disabled state styles */
+input[type=checkbox]:disabled+.lbl::before,input[type=radio]:disabled+.lbl::before,input[type=checkbox][disabled]+.lbl::before,input[type=radio][disabled]+.lbl::before,input[type=checkbox].disabled+.lbl::before,input[type=radio].disabled+.lbl::before {
+	background-color: #DDD !important;
+	border-color: #CCC !important;
+	box-shadow: none !important;
+	color: #BBB;
+}
+
+/* Styles for Radio button */
+input[type=radio]+.lbl::before {
+	border-radius: 32px;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 36px;
+}
+
+input[type=radio]:checked+.lbl::before {
+	content: "\2022";
+}
+/* Form group */
+.group-form label{
+ font-size: 12px !important;
+}
+.group-form{
+ margin-bottom: 5px;
+}
+
+label.line-label{
+	font-size: 20px !important;
+}
+.blck-p:after{
+	content: ' ';
+	display: block;
+	width: 100%;
+	height: 1px;
+	margin-top: 10px;
+	background: -moz-linear-gradient(left, rgba(147,184,189,0) 0%, rgba(147,184,189,0.8) 20%, rgba(147,184,189,1) 53%, rgba(147,184,189,0.8) 79%, rgba(147,184,189,0) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(147,184,189,0)), color-stop(20%,rgba(147,184,189,0.8)), color-stop(53%,rgba(147,184,189,1)), color-stop(79%,rgba(147,184,189,0.8)), color-stop(100%,rgba(147,184,189,0)));
+	background: -webkit-linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%);
+	background: -o-linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%);
+	background: -ms-linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%);
+	background: linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%);
+}
+.line{
+	color: #666;
+}
+.line3{
+	color: maroon;
+}
+/* Wrap Partner Form */
+.wrap-partner,.wrap-staffing,.wrap-offer,.wrap-inquiry{
+	display:none;
+}
+/* Alert Flat UI sytle */
+.step {
+	background-color: #fcf8e3;
+	border: 1px solid #fbeed5;
+	color: #c09853;
+	line-height: normal;
+	margin-bottom: 5px;
+	padding: 0 15px 10px 5px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.step h1,.step h2, .step h3, .step h4, .step h5 {
+	font-family: 'Open Sans',sans-serif;
+	font-weight: 300;
+}
+.step p {
+	font-size: 17px;
+	margin-bottom: 5px;
+}
+/* input Style */
+.input-s1{
+	border-radius: 0 !important;
+	margin-bottom: 0 !important;
+	/*height: 40px !important;*/
+}
+/*select.input-s1{
+	font-size: 14px !important;
+	line-height: 40px !important;
+}*/
+.thnk-p{
+	font-size: 17px;
+}
+.addOn2{
+	height: 20px !important;
+	font-size: 20px;
+	/*line-height: 30px !important;*/
+}
+.text-capitalize{
+	text-transform: capitalize;
+}
+.hideIt{
+	display:none;
+}
+#viewcontriblink{
+	text-align:center;
+}
+.requiredFieldError{
+	color: #b94a48;
+}

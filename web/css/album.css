@@ -36,12 +36,22 @@ body{
 	background-color: #fff;
 	height: 280px;
 	overflow: hidden;
-	border-radius: 3px;
-	box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+	border-radius: 0px;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+	padding:0px;
 	position: relative;
 }
 .wrap-cookboard-container-album-2{
-	height: 330px;
+	height: 340px;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+	padding:0px;
+}
+.wrap-cookboard-container-album-2:hover {
+	box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+-webkit-transition: all 0.3s ease-in-out;
+-moz-transition: all 0.3s ease-in-out;
+-o-transition: all 0.3s ease-in-out;
+transition: all 0.3s ease-in-out;
 }
 .ellipsis {
 	overflow: hidden;
@@ -49,13 +59,12 @@ body{
 	white-space: nowrap;
 }
 .wcca-header{
-	margin-bottom: 10px;
-	margin-left: 15px;
-    margin-right: 15px;
+	background: #333;
+	padding: 10px 15px;
 }
 .wcca-title{
 	font-weight: bold;
-	color: #666;
+	color: #fff;
 	padding-top: 5px;
 }
 .wcca-img-featured{
@@ -79,7 +88,7 @@ body{
 	text-decoration: none;
 }
 .wcca-img-featured{
-	margin-bottom: 10px;
+	margin-bottom: 0px;
 }
 .wcca-pins{
 	border-top: 1px solid #ddd;
@@ -138,4 +147,54 @@ body{
 }
 .wrap-item-img2 .img-cntre{
 	display: none;
+}
+
+/*ribbon*/
+.ribbon-wrapper-orange {
+  width: 85px;
+height: 88px;
+overflow: hidden;
+position: absolute;
+top: 4px;
+right: 6px;
+z-index: 1;
+}
+
+.ribbon-orange {
+  font: bold 15px Sans-Serif;
+  color: #fff;
+  text-align: center;
+  -webkit-transform: rotate(45deg);
+  -moz-transform:    rotate(45deg);
+  -ms-transform:     rotate(45deg);
+  -o-transform:      rotate(45deg);
+  position: relative;
+  padding: 7px 0;
+  left: -5px;
+  top: 15px;
+  width: 120px;
+	border: solid 1px #da7c0c;
+	background: #f78d1d;
+	background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+	background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
+  -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
+  box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+}
+
+.ribbon-orange:before, .ribbon-orange:after {
+  content: "";
+  border-top:   3px solid #6e8900;   
+  border-left:  3px solid transparent;
+  border-right: 3px solid transparent;
+  position:absolute;
+  bottom: -3px;
+}
+
+.ribbon-orange:before {
+  left: 0;
+}
+.ribbon-orange:after {
+  right: 0;
 }

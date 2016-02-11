@@ -29,14 +29,39 @@ AppAsset::register($this);
   ga('send', 'pageview');
 
 </script>
+
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//www.stats.numberchallenge.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 1707]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//www.stats.numberchallenge.com/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54814a0070a53e3f" async="async"></script>
 </head>
 <body><?php $this->beginBody() ?>
 <?php
     $this->title = 'Cookboard.com';
 ?>
 <?= $this->render('_loading') ?>
-<div class="container">
-    <?= $this->render('_main_menu') ?>
+<div class="htop">
+	<div class="container">
+		<div class="row">
+			<?= $this->render('_main_menu') ?>
+		</div>
+	</div>
+</div>
+<div class="container">   
     <div class="row">
         <div class="col-lg-12">
             <?= Breadcrumbs::widget([
@@ -52,20 +77,33 @@ AppAsset::register($this);
         echo $this->render('//site/_profile_modal');
     }
 ?>
-
+<?php /*?>
 <div class="footer">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="footer-content"></div>
                 <div class="footer-credit">
-                    All Rights Reserved 2014. Cookboard.com
+                    <div class="col-md-6">
+                       <span>All Rights Reserved 2014. Cookboard.com&nbsp;</span>
+					</div>
+                    <div class="col-md-6">
+                       <div class="">
+							<div class="pull-right">
+							<a class="label label-warning" href="<?=Yii::$app->urlManager->createUrl(['site/privacy'])?>">Privacy policy</a> | 
+							<a class="label label-warning" href="<?=Yii::$app->urlManager->createUrl(['site/toc'])?>">Terms and Conditions</a>
+							</div>
+						</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<?php */?>
+<?php
+	echo $this->render('footer');
+?>
 <?php $this->endBody() ?>
 
 <!--[if lt IE 9]>
@@ -76,3 +114,4 @@ AppAsset::register($this);
 </body>
 </html>
 <?php $this->endPage() ?>
+

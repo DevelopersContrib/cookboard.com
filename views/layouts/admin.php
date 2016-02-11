@@ -79,9 +79,6 @@ AppAsset::register($this);
             <?= Breadcrumbs::widget([
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]) ?>
-            <?php
-                //var_dump(Yii::$app->controller->page);
-            ?>
             <?= $content ?>
         </div>
     </div>

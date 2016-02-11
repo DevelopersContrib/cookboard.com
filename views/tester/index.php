@@ -11,7 +11,7 @@ $this->title = 'Testers';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tester-index">
-
+    <a href="http://web.cookboard.com/paypal/buy">pay</a>
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 

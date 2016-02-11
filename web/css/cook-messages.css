@@ -2,8 +2,7 @@
 										color:#F77F08;
 									}
 									.cookpot {
-										background:#ffffff;
-										padding:7px;
+										padding:12px;
 										border-radius:100%;
 										box-shadow: 0 0 6px #F77F08;
 										width:56px;
@@ -17,7 +16,7 @@
 										padding-bottom: 20px !important;
 									}
 									.ulcon {
-										width: 640px;
+										width: 500px;
 									}
 									.cstabs {
 										border-bottom:none;
@@ -26,6 +25,12 @@
 										color:#232323;
 										margin-top:15px;
 										margin-right: 38px;
+									}
+									.cstabcon h4 {
+									font-size:15px;
+									}
+									.cstabcon span {
+									font-size:13px;
 									}
 									.cstabs li a {
 									border: 1px solid #cecece;
@@ -134,4 +139,17 @@ width:100%;
 
 .tt-suggestion p {
   margin: 0;
+}
+.count {
+position: absolute;
+top: 10%;
+right: 15%;
+font-size: 16px;
+font-weight: normal;
+background: none repeat scroll 0% 0% rgba(41, 200, 41, 0.75);
+color: #FFF;
+line-height: 1em;
+padding: 2px 6px;
+border-radius: 10px;
+border: 1px solid #F77F08;
 }

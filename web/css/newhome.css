@@ -1,0 +1,307 @@
+html, body {
+min-height: 100%;
+}
+
+body {
+background: url(http://rdbuploads.s3.amazonaws.com/uploads/cookboard/cookboard-photoshoot.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.bar-custm {
+    
+}
+.cook-landing {
+    text-align: center;
+    margin-top: 60px;
+    background: rgba(0, 0, 0, 0.7) none repeat scroll 0px 0px;
+    padding: 20px 30px;
+    border-radius: 25px;
+}
+			.cook-landing h1 {
+			text-shadow: 3px 3px 2px #000;
+			color:#ffffcc !important;font-size:3.5em;			
+			}
+			.cook-landing h2 {
+			text-shadow: 2px 2px 1px #000;
+			padding-bottom:5px;
+			
+			}
+			.cook-landing h3 {
+			text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+			font-size:21px;
+			}
+			.cook-landing .cook-home-search {
+			background: none repeat scroll 0px 0px rgba(0, 0, 0, 0.5);
+			box-shadow: 0px 0px 8px #FFF;
+			padding: 13px 12px 12px 12px;
+			border-radius:8px;
+			}
+			.cook-landing .cook-home-search input,button {
+			height:60px;
+			font-size:22px;
+			margin-bottom:3px;
+			}
+			.cook-landing .cook-home-search button {
+			font-size:20px;
+			font-weight:bold;
+			}
+			.cook-landing .btn.btn-primary {
+			color: #fff;
+			text-shadow: 0 1px 1px rgba(0,0,0,.4);
+			background-color: #239fdb;
+			-moz-box-shadow: 0 2px 2px rgba(0,0,0,.05), inset 0 -2px 0 rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.3);
+			-webkit-box-shadow: 0 2px 2px rgba(0,0,0,.05), inset 0 -2px 0 rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.3);
+			box-shadow: 0 2px 2px rgba(0,0,0,.05), inset 0 -2px 0 rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.3);
+			border: 2px solid #1682b6;
+			}
+			.cook-landing .btn.btn-info {
+			color: #fff;
+			text-shadow: 0 1px 1px rgba(0,0,0,.4);
+			background-color: #35c1db;
+			border: 2px solid #21a5bd;
+			-moz-box-shadow: 0 2px 2px rgba(0,0,0,.05), inset 0 -2px 0 rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.3);
+			-webkit-box-shadow: 0 2px 2px rgba(0,0,0,.05), inset 0 -2px 0 rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.3);
+			box-shadow: 0 2px 2px rgba(0,0,0,.05), inset 0 -2px 0 rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.3);
+			}
+			.cook-landing .btn.btn-large {
+			font-size: 3em;
+			padding: 12px 5px;
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			border-radius: 5px;
+			text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+			border:1px solid #fff;
+			}
+			.cook-landing .btn.btn-large:hover {
+			box-shadow:0px 0px 10px #fff;
+			border:1px solid #F77F08;
+			}
+			.cook-landing .line-center{
+				margin:0;padding:0 10px;
+				display:inline-block;
+				font-size:35px;
+			}
+			.cook-landing h4{
+				font-size:50px;
+				text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+			}
+			.cook-landing h4 {
+				overflow: hidden;
+				text-align: center;
+			}
+			.cook-landing h4:before,
+			.cook-landing h4:after {
+				background-color: #fff;
+				content: "";
+				display: inline-block;
+				height: 1px;
+				position: relative;
+				vertical-align: 9px;
+				width: 50%;
+			}
+			.cook-landing h4:before {
+				right: 0.5em;
+				margin-left: -50%;
+			}
+			.cook-landing h4:after {
+				left: 0.5em;
+				margin-right: -50%;
+			}
+
+			.cook-landing .form-control {
+			border: 1px solid #FFF;
+			}
+			.cook-landing .choice {
+			font-size:30px !important;
+			text-shadow: none !important;
+			}
+			.cook-landing .cookb-search {
+			color:#ffffff;
+			}
+			.cook-landing .circles {
+			vertical-align: 8px;
+			margin-left: 10px;
+			}
+			.cook-landing .cook-area {
+			border:none;
+			color:#F0AD4E;
+			border-radius:6px;
+			}
+			.cook-landing #loader {
+			display:inline-block;
+			vertical-align:-3px;
+			margin-left: 5px;
+			}
+			.cook-landing .3cols .col-md-4 {
+			padding-left:0px !important;
+			padding-right:0px !important;
+			}
+
+.cook-home-search a.label {
+font-size:13px !important;
+}
+/**/
+.spinner {
+  width: 70px;
+  text-align: center;
+  display:inline-block;
+  vertical-align:-3px;
+}
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  box-shadow:0px 0px 5px #000;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+  animation: bouncedelay 1.4s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+.food-porn img {
+width: 55px;
+position: absolute;
+margin-top: -36px;
+margin-left: -23px;
+-ms-transform: rotate(-21deg);
+-webkit-transform: rotate(-21deg);
+transform: rotate(-21deg);
+}
+
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bouncedelay {
+  0%, 80%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+.cook-landing .cook-home-search .col-md-5, .cook-landing .cook-home-search .col-md-2 {
+padding-right: 2px;
+padding-left: 2px;
+}
+.cook-landing .cook-home-search .btn {
+width:117px;
+}
+
+@media all and (max-width: 600px) {
+    .cook-landing .food-porn {
+        display:none;
+    }
+}
+@media all and (max-width: 600px) {
+    .cook-landing  {
+        margin-top: 0px;
+    }
+}
+
+/*hover details*/
+div#b-details {
+visibility: hidden;
+padding: 10px;
+position: relative;
+top: -175px;
+left: -215px;
+}
+    
+a.show-details:hover + div#b-details {
+    visibility: visible;
+}
+#b-details .c-right {
+float:right;
+width:20%;
+}
+#b-details .c-left {
+float:left;
+width:90%;
+color:#fff;
+padding:10px;
+background:none repeat scroll 0px 0px rgba(0, 0, 0, 0.7);
+border-radius:4px;
+position: absolute;
+right: 47px;
+}
+.c-left h3 {
+margin:5px;
+}
+.c-left h3 span {
+background: #FFA500;
+padding: 3px 3px;
+display: block;
+border-radius: 15px;
+margin-top: 3px;
+}
+
+div#b-details2 {
+visibility: hidden;
+padding: 10px;
+position: relative;
+top: -175px;
+left: 110px;
+}
+    
+a.show-details2:hover + div#b-details2 {
+    visibility: visible;
+}
+#b-details2 .f-left {
+float:left;
+width:20%;
+}
+#b-details2 .f-right {
+float:right;
+width:90%;
+color:#fff;
+padding:10px;
+background:none repeat scroll 0px 0px rgba(0, 0, 0, 0.7);
+border-radius:4px;
+margin-left: 142px;
+position: absolute;
+}
+.f-right h3 {
+margin:5px;
+}
+.f-right h3 span {
+background: #FFA500;
+padding: 3px 3px;
+display: block;
+border-radius: 15px;
+margin-top: 3px;
+}
+@media all and (max-width: 600px) {
+    div#b-details  {
+        display:none;
+    }
+	div#b-details2  {
+        display:none;
+    }
+}
+@media all and (max-width: 600px) {
+    .cook-landing .cterms {
+	margin-top:0px !important;
+	}
+}
+		  

@@ -4,8 +4,7 @@
 		min-height: 95px;
 		background: #fff;
 		border-radius: 0;
-		border: none;
-		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+		border: none;		
 	}
 	.bar-custm .bar-custm-nav > li > a{
 		height: 95px;
@@ -27,27 +26,28 @@
 		text-align: center;
 		text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
 		color: #fff !important;
-		padding-left: 25px;
-		padding-right: 25px;
+		padding-left: 10px;
+		padding-right: 10px;
 	}
 	.bar-custm .bar-custm-nav > li:last-child > a.bar-link-a{
 		margin-right: -15px !important;
 	}
 	.bar-custm .bar-custm-nav > li > a.bar-link-a:hover{
-		background: #fff;
+		background: #f5f5f5;
 		text-shadow: none;
 	}
 	.bar-custm .bar-custm-nav > li > a.bar-warning{
-		background: #ec971f;
+		background: #F77F08;		
 	}
 	.bar-custm .bar-custm-nav > li > a.bar-warning:hover{
-		color: #ec971f !important;
+		color: #EC971F !important;
 	}
 	.bar-custm .bar-custm-nav > li > a.bar-lghtWarning{
-		background:#f0ad4e;
+		background:#F77F08;
+		margin:0px 1px 0px 0px;
 	}
 	.bar-custm .bar-custm-nav > li > a.bar-lghtWarning:hover{
-		color: #f0ad4e !important;
+		color: #EC971F !important;
 	}
 	.bar-link-a i{
 		text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
@@ -82,22 +82,22 @@
 }
 @media (min-width: 768px) and (max-width: 979px) {
 	.logoIndex{
-		max-height: 30px;
+		max-height: 48px;
 	}
 }
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) { 
 	.logoIndex{
-		max-height: 30px;
+		max-height: 48px;
 	}
 }
 @media (max-width: 568px) {
 	.logoIndex{
-		max-height: 30px;
+		max-height: 48px;
 	}
 }
 @media (max-width: 480px) {
 	.logoIndex{
-		max-height: 30px;
+		max-height: 48px;
 	}
 }

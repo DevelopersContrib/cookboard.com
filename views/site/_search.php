@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
                 Search for foods
         </h3>
         <p class="lead-Sub-desc font-raleways font-300">
-                All you need to do is enter an igredient, a dish or a keyword. 
+                All you need to do is enter an ingredient, a dish ,a keyword or a city. 
         </p>
         <p class="lead-Sub-desc font-raleways font-300">
                 You can also select a specific category from the dropdown.

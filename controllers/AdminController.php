@@ -54,6 +54,16 @@ class AdminController extends Controller
     
     public function actionLogin()
     {
+        if (!Yii::$app->getSession()->has('location')) {
+            $url = "http://api.hostip.info/get_json.php?ip=".$_SERVER['REMOTE_ADDR'];
+            $curl = curl_init();
+            curl_setopt ($curl, CURLOPT_URL, $url);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+            $result = curl_exec ($curl);
+            curl_close ($curl);
+
+            Yii::$app->getSession()->set('location', $result);
+        }
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }

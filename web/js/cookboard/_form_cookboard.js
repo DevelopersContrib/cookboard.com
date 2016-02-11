@@ -57,7 +57,7 @@ Cookboard.FormCookboard = {
                     }else{
                         //gCookboard.append(html);
                         //gNotify(name+' has been created successfully!');
-                        window.location = El.baseUrl+'cookboard/'+data.id;
+                        window.location = El.baseUrl+'cookboard/'+data.slug;
                     }
                 }
             }).complete(function () {
@@ -104,6 +104,9 @@ Cookboard.FormCookboard = {
         }else{
             El.find('form #featured0').prop('checked',true);
         }
+        El.find('form #cookboard-facebook').val(data.facebook);
+        El.find('form #cookboard-instagram').val(data.instagram);
+        El.find('form #cookboard-pinterest').val(data.pinterest);
     },
     clear: function () {
         var El = this;

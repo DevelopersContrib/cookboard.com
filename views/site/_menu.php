@@ -1,4 +1,4 @@
-<div class="row">
+<!--<div class="row">-->
     <div class="col-lg-12">
         <nav class="navbar navbar-default bar-custm" role="navigation">
             <div class="container-fluid">
@@ -18,7 +18,11 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav bar-custm-nav">
-                        <li class=""><a href="<?php echo Yii::$app->homeUrl;?>about">About us</a></li>
+                        <?php /*?>
+						<li class=""><a href="<?php echo Yii::$app->homeUrl;?>about">About us</a></li>
+						<li class=""><a href="<?php echo Yii::$app->homeUrl;?>team">Team</a></li>
+						
+						<li class=""><a href="<?php echo Yii::$app->homeUrl;?>sitemap">Sitemap</a></li>
                         <?php /*?>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Features <span class="caret"></span></a>
@@ -52,7 +56,7 @@
                             <a href="<?php echo Yii::$app->homeUrl;?>search" class="bar-link-a bar-lghtWarning">
                                 <i class="fa fa-cutlery"></i>
                                 <span class="bar-mwdth">
-                                    Search for foods
+                                    Search
                                 </span>
                             </a>
                         </li>
@@ -109,4 +113,7 @@
              </div>
         </div>
     </div>
-</div>
+    
+    
+    
+<!--</div>-->

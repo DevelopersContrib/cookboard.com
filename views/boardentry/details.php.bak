@@ -1,0 +1,344 @@
+<?php
+use yii\widgets\ActiveForm;
+use yii\helpers\Html;
+
+$this->registerCssFile(Yii::$app->homeUrl."css/jRating.jquery.css",['depends' => 'app\assets\AppAsset']);
+$this->registerCssFile(Yii::$app->homeUrl."css/album.css",['depends' => 'app\assets\AppAsset']);
+$this->registerCssFile(Yii::$app->homeUrl."css/solo-entry.css",['depends' => 'app\assets\AppAsset']);
+$this->registerCssFile(Yii::$app->homeUrl."css/lightbox.css",['depends' => 'app\assets\AppAsset']);
+
+$this->title = $model->name;
+
+if(!Yii::$app->user->isGuest){
+$this->params['breadcrumbs'] =[
+    ['label' => 'Cook Board','url' => ['cookboard/index'],],
+    ['label' => $model->cookboard->name, 'url' => ['cookboard/'.$model->cookboard->slug]],
+    $this->title,
+];
+}else{
+  $this->params['breadcrumbs'] =[
+    ['label' => $model->cookboard->name, 'url' => ['cookboard/'.$model->cookboard->slug]],
+    $this->title,
+];  
+}
+
+?>
+<style>
+#imagelightbox
+{
+    position: fixed;
+    z-index: 9999;
+ 
+    -ms-touch-action: none;
+    touch-action: none;
+}
+.dpage {
+width:100%;
+}
+</style>
+<div class="dpage">
+    
+    <div class="show-grid">
+        
+        <div id="details-container" class="col-xs-12 wrap-descriptionEntryDetails">
+        <div class="col-md-4">
+            <?php
+                $photo = $model->boardEntryPhoto[0];
+                echo $this->render('_photo_single',['photo'=>$photo,'slug'=>$model->slug]);
+            ?>
+        </div>
+        <div class="col-md-4">
+            <div class="wrap-descriptionEntryDetails font-raleways font-300">
+            <h3><?=$model->name?></h3>
+            <p class=" wded-desc">
+                <?=$model->description?>
+            </p>
+            <ul class="list-inline text-capitalize">
+                <li>
+                    <span class="label label-warning text-capitalize">
+                        cuisine: <?=$model->cuisine->name?>
+                    </span> 
+                </li>
+                <li>
+                    <span class="label label-danger text-capitalize">
+                        course: <?=$model->course->name?>
+                    </span>
+                </li>
+                <?php
+                    if(!empty($model->diet_id)){
+                ?>
+                <li>
+                    <span class="label label-info text-capitalize">
+                        diets: <?=$model->diet->name?>
+                    </span>
+                </li>
+                <?php
+                    }
+                ?>
+            </ul>
+            <ul class="list-unstyled">
+                <li>
+                    Location : <span class="text-warning"><?=$model->city?></span>
+                </li>
+                <?php if($model->post_type===app\models\BoardEntry::POST_TYPE_FOR_SALE){?>
+                <li>
+                    Delivery Type : <span class="text-warning"><?=$model->deliveryType->name?></span>
+                </li>
+                <li>
+                    <h3>Price : <?=$model->priceType->name?> <?=$model->price?></h3>
+                </li>
+                <?php }?>
+            </ul>
+            <?php
+                //if(!Yii::$app->user->isGuest && $model->user_id == Yii::$app->user->getId()){
+                if($userCan['edit']){
+            ?>
+            <a class="btn btn-warning btn-sm remove-pic" href="<?=Yii::$app->urlManager->createUrl(['boardentry/update', 'slug' => $model->slug]);?>">
+                    <i class="fa fa-edit"></i>
+                    Edit
+            </a>
+            <?php
+                }
+            ?>
+            
+            <?php
+                $attr = '';
+                if($userCan['like']){
+                    $attr = "data-id='".$model->id."' id='like'";
+                }
+            ?>
+            <div class="text-center">
+                <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
+                    <button <?=$attr?> type="button" data-loading-text="Like..." class="btn btn-default">Like</button>
+                    <?php
+                        $display = '';
+                        $likes = count($model->boardEntryLike);
+                        //$display = ($likes>0)?'display:block':'display:none';
+                        if($likes>0){
+                    ?>
+                    <a id="likes" href="<?=Yii::$app->urlManager->createUrl(['boardentry/likes', 'slug' => $model->slug]);?>" style="<?=$display;?>" class="btn btn-default"><?=$likes?></a>
+                    <?php }?>
+                </div>
+            </div>
+            
+            <div id="rating-container" class="text-center">
+                <div id="rating-text" style="help-block rate-block-text">
+                    <?=$userCan['rate']?'Rate this entry.':'Rating';?>
+                </div>
+                <div style="help-block rate-block-text">
+                    <div class="star" data-average="<?=!empty($model->rating_count)?round((!empty($model->rating)?$model->rating:0) / $model->rating_count):0;?>" data-id="<?=$model->id?>"></div>
+                </div>
+            </div>
+            
+            <?php if($userCan['buy'] && $model->post_type===app\models\BoardEntry::POST_TYPE_FOR_SALE){ ?>
+            <div class="text-center" style="margin-top:10px">
+                <?php $form = ActiveForm::begin(['id'=>'checkout','method' => 'post','action' => ['checkout/index']]);?>
+                    <?= Html::activeHiddenInput($model, 'id')?>
+                    <input type="hidden" name="referrer" value="<?=Yii::$app->request->referrer?>" />
+                    <button class="btn btn-default" type="submit">
+                        <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
+                    </button>
+                <?php ActiveForm::end(); ?>
+            </div>
+            <?php }?>
+            </div>
+        </div>
+        <div class="col-md-4">
+            
+            <div class="wrap-userSolocontainer">
+                <a href="<?=\Yii::$app->urlManager->createUrl(['profile/index', 'slug' => $model->user->slug]);?>">
+                    <div class="wrap-imagePublicUser">
+                        <?php
+                            $img = !empty($model->user->photo)?Yii::$app->homeUrl.'pix/'.$model->user->photo:'http://d2qcctj8epnr7y.cloudfront.net/images/jayson/cookboard/grayscaled-icon.png';
+                        ?>
+                        <img class="img-responsive img-circle " src="<?=$img?>">
+                    </div>
+                </a>
+                <h3 class="text-center text-capitalize">
+                    <a class="solo-user-link" href="<?=\Yii::$app->urlManager->createUrl(['profile/index', 'slug' => $model->user->slug]);?>">
+                        <i class="fa fa-cutlery"></i>
+                        <?=$model->user->username?>
+                    </a>
+                </h3>
+
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    
+    <div class="show-grid ">
+        <div id="containerSetHeight" class="col-md-8">
+            <?php
+                    foreach($model->boardEntryPhoto as $photo){
+                        echo $this->render('_photo',['photo'=>$photo]);
+                    }
+                ?>
+        </div>
+      <div class="col-md-4">
+          <div class="wrap-descriptionEntryDetails font-raleways font-300">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3><?=$model->name?> location:</h3>
+                </div>
+                <div class="col-lg-12">
+                    <div id="map-container" class="wrap-googlemapsContainer"></div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    
+    <?php /*?>
+    <div class="col-lg-8">
+        <div id="wrapper-container"  class="row wrapper-container">
+            <div id="containerSetHeight">
+                <?php
+                    foreach($model->boardEntryPhoto as $photo){
+                        echo $this->render('_photo',['photo'=>$photo]);
+                    }
+                ?>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-4">
+        <div class="wrap-descriptionEntryDetails font-raleways font-300">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="wrap-userSolocontainer">
+                        <a href="<?=\Yii::$app->urlManager->createUrl(['profile/index', 'slug' => $model->user->slug]);?>">
+                            <div class="wrap-imagePublicUser">
+                                <?php
+                                    $img = !empty($model->user->photo)?Yii::$app->homeUrl.'pix/'.$model->user->photo:'http://d2qcctj8epnr7y.cloudfront.net/images/jayson/cookboard/grayscaled-icon.png';
+                                ?>
+                                <img class="img-responsive img-circle " src="<?=$img?>">
+                            </div>
+                        </a>
+                        <h3 class="text-center text-capitalize">
+                            <a class="solo-user-link" href="<?=\Yii::$app->urlManager->createUrl(['profile/index', 'slug' => $model->user->slug]);?>">
+                                <i class="fa fa-cutlery"></i>
+                                <?=$model->user->username?>
+                            </a>
+                        </h3>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrap-descriptionEntryDetails font-raleways font-300">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3><?=$model->name?></h3>
+                    <p class=" wded-desc">
+                        <?=$model->description?>
+                    </p>
+                    <ul class="list-inline text-capitalize">
+                        <li>
+                            <span class="label label-warning text-capitalize">
+                                cuisine: <?=$model->cuisine->name?>
+                            </span> 
+                        </li>
+                        <li>
+                            <span class="label label-danger text-capitalize">
+                                course: <?=$model->course->name?>
+                            </span>
+                        </li>
+                        <?php
+                            if(!empty($model->diet_id)){
+                        ?>
+                        <li>
+                            <span class="label label-info text-capitalize">
+                                diets: <?=$model->diet->name?>
+                            </span>
+                        </li>
+                        <?php
+                            }
+                        ?>
+                    </ul>
+                    <ul class="list-unstyled">
+                        <li>
+                            Location : <span class="text-warning"><?=$model->city?></span>
+                        </li>
+                        <li>
+                            Delivery Type : <span class="text-warning"><?=$model->deliveryType->name?></span>
+                        </li>
+                        <li>
+                            <h3>Price : <?=$model->priceType->name?> <?=$model->price?></h3>
+                        </li>
+                    </ul>
+                    <?php
+                        //if(!Yii::$app->user->isGuest && $model->user_id == Yii::$app->user->getId()){
+                        if($userCan['edit']){
+                    ?>
+                    <a class="btn btn-warning btn-sm remove-pic" href="<?=Yii::$app->urlManager->createUrl(['boardentry/update', 'slug' => $model->slug]);?>">
+                            <i class="fa fa-edit"></i>
+                            Edit
+                    </a>
+                    <?php
+                        }
+                    ?>
+                    <div id="rating-container" class="text-center">
+                        <div id="rating-text" style="help-block rate-block-text">
+                            <?=$userCan['rate']?'Rate this entry.':'Rating';?>
+                        </div>
+<!--                            <span class="text-capitalize"> 3 star good</span>-->
+                        <div style="help-block rate-block-text">
+                            <div class="star" data-average="<?=!empty($model->rating_count)?round((!empty($model->rating)?$model->rating:0) / $model->rating_count):0;?>" data-id="<?=$model->id?>"></div>
+                        </div>
+                    </div>
+                    <?php if($userCan['buy']){ ?>
+                    <div id="rating-container" class="text-center" style="margin-top:10px">
+                        <?php $form = ActiveForm::begin(['id'=>'checkout','method' => 'post','action' => ['checkout/index']]);?>
+                            <?= Html::activeHiddenInput($model, 'id')?>
+                            <input type="hidden" name="referrer" value="<?=Yii::$app->request->referrer?>" />
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
+                            </button>
+                        <?php ActiveForm::end(); ?>
+                    </div>
+                    <?php }?>
+                </div>
+            </div>
+        </div>
+        <div class="wrap-descriptionEntryDetails font-raleways font-300">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3><?=$model->name?> location:</h3>
+                </div>
+                <div class="col-lg-12">
+                    <div id="map-container" class="wrap-googlemapsContainer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <?php */?>
+</div>
+
+<?php 
+$this->registerJsFile(Yii::$app->homeUrl.'js/vendor/imagelightbox.min.js',['depends' => 'yii\web\AssetBundle'] );
+$this->registerJsFile(Yii::$app->homeUrl.'js/vendor/lightbox.js',['depends' => 'yii\web\AssetBundle'] );
+
+$this->registerJsFile(Yii::$app->homeUrl.'js/vendor/jRating.jquery.min.js',['depends' => 'yii\web\AssetBundle'] );
+
+$this->registerJsFile(Yii::$app->homeUrl.'js/boardentry/details.js',['depends' => 'yii\web\AssetBundle'] );
+
+if($userCan['rate']){
+    $this->registerJsFile(Yii::$app->homeUrl.'js/boardentry/details_rating.js',['depends' => 'yii\web\AssetBundle'] );
+}
+
+$this->registerJsFile('//cdnjs.cloudflare.com/ajax/libs/masonry/3.1.5/masonry.pkgd.min.js',['depends' => 'yii\web\AssetBundle'] );
+$this->registerJsFile(Yii::$app->homeUrl.'js/vendor/imgCentering.min.js',['depends' => 'yii\web\AssetBundle'] );
+$this->registerJs($this->render('details_js.php',['slug'=>$model->slug, 'canRate'=>$userCan['rate'],'canLike'=>$userCan['like']]));
+
+if(!empty($model->city) || !empty($model->latlng)){
+    $this->registerJsFile(Yii::$app->homeUrl.'js/site/map.js',['depends' => 'yii\web\AssetBundle'] );
+    $this->registerJs($this->render('details_map_js.php',['model'=>$model])); 
+    $this->registerCss('
+        .wrap-googlemapsContainer {
+            height: 300px;
+        }
+    ');
+}
+?>

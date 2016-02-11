@@ -8,7 +8,13 @@ $this->title = "Cook Board";
 $this->params['breadcrumbs'] =[
     $this->title,
 ];
+
+if($flash = Yii::$app->session->getFlash('msg')){
+    echo Yii::$app->z->alert($flash);
+}
+
 ?>
+
 
 <div id="containerSetHeight" class="cookboard">
     <div id="defaultboard" class="col-xs-12 col-sm-6 col-lg-3 paddItem">

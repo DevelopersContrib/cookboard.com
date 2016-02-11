@@ -16,6 +16,8 @@ use yii\helpers\ArrayHelper; // load classes
  */
 class CookBoard extends \yii\db\ActiveRecord
 {
+    const FEATURED = 1;
+    const NOT_FEATURED = 0;
     /**
      * @inheritdoc
      */
@@ -31,10 +33,10 @@ class CookBoard extends \yii\db\ActiveRecord
     {
         return [
             [['datetime_created'], 'safe'],
-            [['user_id', 'name', 'description', 'featured'], 'required'],
+            [['user_id', 'name', 'description'], 'required'],
             [['user_id', 'featured'], 'integer'],
             [['description'], 'string'],
-            [['name', 'slug'], 'string', 'max' => 255]
+            [['name', 'slug','facebook','instagram','pinterest'], 'string', 'max' => 255]
         ];
     }
 
@@ -54,12 +56,16 @@ class CookBoard extends \yii\db\ActiveRecord
         ];
     }
     
+    public function canEdit(){
+        return $this->user_id === Yii::$app->user->getId();
+    }
+    
     public function beforeValidate()
     {
         if(empty($this->user_id)){
             $this->user_id = Yii::$app->user->getId();
         }
-        $this->slug = Yii::$app->z->create_url_slug($this->name);
+        //$this->slug = Yii::$app->z->create_url_slug($this->name);
         return true;
     }
     
@@ -76,17 +82,81 @@ class CookBoard extends \yii\db\ActiveRecord
         }
     }
     
+    public function afterSave($insert, $changedAttributes )
+    {
+        if(isset($changedAttributes['name']) || $insert){
+            $slug = Yii::$app->z->create_url_slug($this->name);
+            $this->slug = $slug.'-'.$this->id;
+            $this->save();
+        }
+        
+        $boardEntries = BoardEntryPost::find()->where(['cook_board_id'=>$this->id])->orderBy('id')->all();
+        
+        $i = 1;
+        foreach($boardEntries as $entry){
+            $entry->seq = $i;
+            $entry->update();
+            $i++;
+        }
+        
+        return false;
+    }
+    
+	public function countPins(){
+        $cook_board_id = $this->id;
+        
+        return CookBoardItems::find()
+            ->where(['cook_board_id' => $cook_board_id])
+			->andWhere(['>', 'pin_board_entry_id', 0])
+            ->count();
+    }
+	
+	public function countBoardEntries(){
+        $cook_board_id = $this->id;
+        
+        return CookBoardItems::find()
+            ->where(['cook_board_id' => $cook_board_id])
+			->andWhere(['>', 'board_entry_id', 0])
+            ->count();
+        
+    }
+	
+	public function countPosts(){
+        $cook_board_id = $this->id;
+        
+        return CookBoardItems::find()
+			->innerJoinWith('boardEntry', false)
+            ->where(['cook_board_items.cook_board_id' => $cook_board_id, 'board_entry.post_type'=>1])
+			->andWhere(['>', 'board_entry_id', 0])			
+            ->count();
+    }
+	
+	public function countForSale(){
+        $cook_board_id = $this->id;
+        
+        return CookBoardItems::find()
+			->innerJoinWith('boardEntry', false)
+            ->where(['cook_board_items.cook_board_id' => $cook_board_id, 'board_entry.post_type'=>0])
+			->andWhere(['>', 'board_entry_id', 0])			
+            ->count();
+    }
+	
     public function countBoard(){
         $cook_board_id = $this->id;
-        $count = BoardEntry::find()
+        
+        $count = CookBoardItems::find()
             ->where(['cook_board_id' => $cook_board_id])
             ->count();
+        $this->board_count = $count;
+//        $count = BoardEntry::find()
+//            ->where(['cook_board_id' => $cook_board_id])
+//            ->count();
+//
+//        $pin_count = CookBoardPin::find()
+//            ->where(['cook_board_id'=>$cook_board_id])
+//            ->count();
 
-        $pin_count = CookBoardPin::find()
-            ->where(['cook_board_id'=>$cook_board_id])
-            ->count();
-
-        $this->board_count = $count + $pin_count;
+//        $this->board_count = $count + $pin_count;
     }
 
 //    public function getBars()
@@ -96,8 +166,13 @@ class CookBoard extends \yii\db\ActiveRecord
 //    }
 
     public function getUser() {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
+        return $this->hasOne(UserModel::className(), ['id' => 'user_id']);
     }
+    
+    public function getItems()
+    {
+        return $this->hasMany(CookBoardItems::className(), ['cook_board_id' => 'id']);
+    } 
     
     public function getBoardEntry()
     {

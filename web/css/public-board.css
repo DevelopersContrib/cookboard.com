@@ -1,22 +1,44 @@
 
 .wrap-publicBoard-container{
 	background-color: #fff;
-	margin-bottom: 50px;
 	padding: 15px;
+	margin-bottom: 20px;
 }
 .wrap-publicBoard-imgUser{
 	border-radius:50%;
 	overflow: hidden;
-	width: 150px;
-	height: 150px;
+	width: 90px;
+	height: 90px;
 	position: relative;
 	margin:auto;
 	box-shadow: 0 0 4px rgba(0,0,0,0.5);
-	background-color: #ddd;
+	background-color: #121212;
 	border: 5px solid #fff;
-	padding: 10px;
+	margin-top: 20px;
 }
 .wrap-googlemapsContainer{
 	height: 300px;
 	overflow: hidden;
+}
+.wrap-publicBoard-container #cookboard-details-name {
+font-size:40px;
+margin-top:25px;
+}
+.pub-img {
+display:inline-block;
+}
+.pub-name {
+display: inline-block;
+vertical-align: 35px;
+margin-left: 8px;
+}
+.pub-name h1 {
+font-size:28px;
+}
+.p-socials img {
+width:50px;
+margin-right:10px;
+}
+.p-socials {
+margin: 0px;
 }

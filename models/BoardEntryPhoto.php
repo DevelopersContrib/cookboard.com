@@ -32,7 +32,7 @@ class BoardEntryPhoto extends \yii\db\ActiveRecord
     {
         return [
             [['board_entry_id', 'photo'], 'required'],
-            [['board_entry_id', 'seq'], 'integer'],
+            [['board_entry_id', 'seq', 'external'], 'integer'],
             [['datetime_created'], 'safe'],
             [['description'], 'string'],
             [['photo', 'title'], 'string', 'max' => 255]
@@ -52,6 +52,7 @@ class BoardEntryPhoto extends \yii\db\ActiveRecord
             'title' => 'Title',
             'description' => 'Description',
             'seq' => 'Seq',
+            'external' => 'External',
         ];
     }
     

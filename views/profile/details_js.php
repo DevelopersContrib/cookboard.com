@@ -5,4 +5,8 @@ gDetails = Object.create(Cookboard.Details);
 gDetails.uploadUrl = '<?=Yii::$app->urlManager->createUrl(['boardentry/upload']);?>';
 gDetails.baseUrl = '<?=Yii::$app->homeUrl?>';
 gDetails.photo = '<?=$photo;?>';
+
+gDetails.address = address;
+gDetails.defaultlatlng = defaultlatlng;
+
 gDetails.init('profile-details');

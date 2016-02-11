@@ -29,6 +29,23 @@ HomeAsset::register($this);
         ga('send', 'pageview');
 
     </script>
+	
+	<!-- Piwik -->
+	<script type="text/javascript">
+	  var _paq = _paq || [];
+	  _paq.push(['trackPageView']);
+	  _paq.push(['enableLinkTracking']);
+	  (function() {
+		var u="//www.stats.numberchallenge.com/";
+		_paq.push(['setTrackerUrl', u+'piwik.php']);
+		_paq.push(['setSiteId', 1707]);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+	  })();
+	</script>
+	<noscript><p><img src="//www.stats.numberchallenge.com/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+	<!-- End Piwik Code -->
+	
 </head>
 <body><?php $this->beginBody() ?>
     <?= $content ?>
@@ -36,21 +53,8 @@ HomeAsset::register($this);
     if(!Yii::$app->user->isGuest){
         echo $this->render('//site/_profile_modal');
     }
+	echo $this->render('footer');
     ?>
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer-content">
-
-                    </div>
-                    <div class="footer-credit">
-                            All Rights Reserved 2014. Cookboard.com
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     
     <?php $this->endBody() ?>
     
@@ -62,10 +66,16 @@ HomeAsset::register($this);
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/masonry/3.1.5/masonry.pkgd.min.js"></script>
     <script type="text/javascript" src="<?=Yii::$app->homeUrl.'js/vendor/imgCentering.min.js'?>"></script>
-
+    
+    <!-- 
+        http://rdbuploads.s3.amazonaws.com/backgrounds/photodune-311286--beef-f.jpg
+        http://rdbuploads.s3.amazonaws.com/uploads/cookboard/cookboard-photoshoot.jpg 
+    -->
     <script type="text/javascript">
         jQuery(document).ready(function(){
-            jQuery('.wrap-home-container').backstretch("http://rdbuploads.s3.amazonaws.com/backgrounds/photodune-311286--beef-f.jpg");
+            <?php if(!Yii::$app->user->isGuest){?>
+            jQuery('.wrap-home-container').backstretch("http://rdbuploads.s3.amazonaws.com/uploads/cookboard/cookboard-photoshoot.jpg ");
+            <?php }?>
             jQuery('#wrapper-container').masonry({
                 itemSelector : '.item'
             });
