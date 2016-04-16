@@ -10,6 +10,10 @@ Cookboard.Index = {
         El.obj = jQuery('#' + id);
         
         El.find('.ordernow').on('click',function(){
+			if(El.totals()<=0){
+				alert('Your Cart is Currently Empty');
+				return false;
+			}
             El.find('#payment-type').val('1');
             El.find('#order-notes').val('');
             El.find('#selected-order').val(jQuery(this).attr('data-id'));
@@ -130,6 +134,7 @@ Cookboard.Index = {
            totals = parseFloat(totals) + parseFloat(total);
         });
         El.find('.totals').html(totals.toFixed(2));
+		return totals;
     },
     
     find: function(el){
