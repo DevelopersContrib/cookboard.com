@@ -54,7 +54,8 @@
 /* Radio Button */
 /* Hiding default checkbox and Radio button design */
 input[type=checkbox],input[type=radio] {
-	opacity: 0;
+	/*opacity: 0;*/
+	opacity: 1;
 	position: absolute;
 	z-index: 12;
 	width: 18px;
