@@ -173,8 +173,8 @@ class BoardEntry extends \yii\db\ActiveRecord
             'cook_board_id'=>$this->temp_cook_board_id,'user_id'=>Yii::$app->user->getId()]))!==null){
                 $cookboardItem->delete();
             }
-        
-        
+        BoardEntryPhoto::deleteAll('board_entry_id = :board_entry_id', [':board_entry_id' => $this->temp_id]);
+
         $cookboard = CookBoard::findOne($this->temp_cook_board_id);
         $cookboard->update();
         return true;

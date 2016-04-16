@@ -175,7 +175,19 @@ class TesterController extends Controller
             }
         }
     }
+	
+	public function actionPactsafe()
+    {
+		 $this->layout = 'blank';
+        return $this->render('pactsafe');
+    }
     
+	public function actionPactsafe2()
+    {
+		 $this->layout = 'blank';
+        return $this->render('pactsafe2');
+    }
+	
     public function actionPhpinfo()
     {
         phpinfo();
