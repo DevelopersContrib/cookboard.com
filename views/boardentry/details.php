@@ -169,6 +169,12 @@ if($flash = Yii::$app->session->getFlash('msg')){
 				<?php
 
 					$photo = $model->boardEntryPhoto[0];
+					foreach($model->boardEntryPhoto as $p){
+						if($p->featured==1){
+							$photo = $p;
+							break;
+						}
+					}
 					echo $this->render('_photo_single',['id'=>$model->id, 'photo'=>$photo,'cookboard_slug'=>$parent_cookboard->slug, 
 						'slug'=>$model->slug,'post_type'=>$model->post_type,'model'=>$model,'userCan'=>$userCan]);
 				?>
@@ -418,7 +424,9 @@ if($flash = Yii::$app->session->getFlash('msg')){
     <div style="clear:both"></div>
 	
 	<?php		
-		echo $this->render('_review',['model'=>$model,'currentuser'=>$currentuser]);
+		//if(!empty($currentuser) && !empty($model->review)){
+			echo $this->render('_review',['model'=>$model,'currentuser'=>$currentuser]);
+		//}
 	?>
 </div>
 

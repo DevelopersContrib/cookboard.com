@@ -1,6 +1,7 @@
 <?php
 	if(empty($currentuser) && empty($model->review)){
 	}else{
+		
 ?>
 
 <div class="row" >
@@ -22,7 +23,7 @@
 						<div class="media">
 							<div class="media-left">
 								<?php
-									$img = !empty($currentuser->photo)?Yii::$app->homeUrl.'pix/'.$currentuser->user->photo:'http://d2qcctj8epnr7y.cloudfront.net/images/jayson/cookboard/grayscaled-icon.png';
+									$img = !empty($currentuser->photo)?Yii::$app->homeUrl.'pix/'.$currentuser->photo:'http://d2qcctj8epnr7y.cloudfront.net/images/jayson/cookboard/grayscaled-icon.png';
 								?>
 								<img width="64" height="64" class="media-object" src="<?=$img?>">
 							</div>
@@ -48,5 +49,5 @@
 	</div>
 </div>
 <?php
-	}
+	} 
 ?>

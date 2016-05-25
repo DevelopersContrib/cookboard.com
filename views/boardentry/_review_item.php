@@ -5,7 +5,7 @@
 	<div class="media">
 		<div class="media-left pull-left">
 			<?php
-				$img = !empty($item->user->photo)?Yii::$app->homeUrl.'pix/'.$model->user->photo:'http://d2qcctj8epnr7y.cloudfront.net/images/jayson/cookboard/grayscaled-icon.png';
+				$img = !empty($item->user->photo)?Yii::$app->homeUrl.'pix/'.$item->user->photo:'http://d2qcctj8epnr7y.cloudfront.net/images/jayson/cookboard/grayscaled-icon.png';
 			?>
 			<a target="_blank" class="pub-name" href="<?=\Yii::$app->urlManager->createUrl(['profile/index', 'slug' => $item->user->slug]);?>">
 				<img width="64" height="64" class="media-object" src="<?=$img?>">

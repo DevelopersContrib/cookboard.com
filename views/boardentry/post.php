@@ -128,6 +128,12 @@ $this->params['breadcrumbs'] =[
                     <div class="form-group">
                         <textarea id="<?=$item->id?>" class="old-pic-desc form-control input-sm" placeholder="Description..."><?=$item->description?></textarea>
                     </div>
+					<div class="radio">
+					  <label>
+						<input class="featured" type="radio" name="featured" value="<?=$item->id?>" <?=$item->featured==1?"checked":""?> />
+						Featured
+					  </label>
+					</div>
                     <div class="form-group">
                         <a id="<?=$item->id?>" data-title="<?=$item->title?>" href="javascript:;" class="btn btn-primary btn-sm remove-pic">Remove</a>
                     </div>
