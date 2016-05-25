@@ -20,7 +20,12 @@
                 if(count($photos)>0){
                     //$img = Yii::$app->homeUrl.reset($photos);
                     $img = $photos[0];
-                    
+					foreach($photos as $p){
+						if($p->featured==1){
+							$img = $p;
+							break;
+						}
+					}
                     $img = $img->external?$img->photo:Yii::$app->homeUrl.$img->photo;
                 }
             ?>

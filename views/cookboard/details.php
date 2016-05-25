@@ -157,7 +157,13 @@ if($flash = Yii::$app->session->getFlash('msg')){
                     if(!empty($entry->board_entry_id)){
 						$photos = $entry->boardEntry->boardEntryPhoto;
 						if(count($photos)>0){
-							$firstimg = $photos[0];							
+							$firstimg = $photos[0];
+							foreach($photos as $p){
+								if($p->featured==1){
+									$firstimg = $p;
+									break;
+								}
+							}
 							$firstimg = $firstimg->external?$firstimg->photo:Yii::$app->urlManager->createAbsoluteUrl('site/index').$firstimg->photo;
 						}
 						break;
@@ -165,6 +171,12 @@ if($flash = Yii::$app->session->getFlash('msg')){
 						$photos = $entry->pinBoardEntry->boardEntryPhoto;
 						if(count($photos)>0){
 							$firstimg = $photos[0];
+							foreach($photos as $p){
+								if($p->featured==1){
+									$firstimg = $p;
+									break;
+								}
+							}
 							$firstimg = $firstimg->external?$firstimg->photo:Yii::$app->urlManager->createAbsoluteUrl('site/index').$firstimg->photo;
 						}
 						break;
