@@ -168,6 +168,10 @@ class CookBoard extends \yii\db\ActiveRecord
     public function getUser() {
         return $this->hasOne(UserModel::className(), ['id' => 'user_id']);
     }
+	
+	public function getPrimary() {
+        return $this->hasOne(BoardEntry::className(), ['id' => 'primary_board_entry_id']);
+    }
     
     public function getItems()
     {
