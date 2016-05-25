@@ -219,7 +219,8 @@ Cookboard.FormBoardEntry = {
                El.obj.append('<input class="sub-pic-desc-old" type="hidden" name="oldpicdesc[]" value="'+jQuery(this).val()+'" />');
             });
             //-----
-
+			El.obj.append('<input type="hidden" id="featuredphoto" name="featuredphoto" value="'+jQuery('.featured:checked').val()+'" />');
+			
             var establishment_ids = El.find("#establishments").val();
 
             if(establishment_ids!=undefined) El.find("#establishments_ids").val(establishment_ids);
