@@ -211,6 +211,7 @@ class SearchController extends Controller
             $name = 'name';
             if($type==='board'){
                 $query = CookBoard::find()->innerJoinWith('user');
+				$query->andFilterWhere(['>', 'board_count', 0]);
             }elseif($type==='user'){
                 $query = UserModel::find();
             }else{

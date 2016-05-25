@@ -106,7 +106,7 @@ class BoardentryController extends Controller
 		if(!Yii::$app->user->isGuest){
 			$currentuser = UserModel::findOne(['id'=>$userid]);
 		}
-				
+		
         return $this->render('details', [
 			'gocart'=>$gocart,
 			'currentuser'=>$currentuser,
@@ -293,12 +293,18 @@ class BoardentryController extends Controller
             if(!empty($post['oldpicid'])){
                 $x=0;
                 foreach($post['oldpicid'] as $photoid){
-                    
                     $boardEntryPhoto = BoardEntryPhoto::findOne(['id'=>$photoid]);
                     if($boardEntryPhoto!==null && $boardEntryPhoto->boardEntry->user_id === $userid){
                         $boardEntryPhoto->title = $post['oldpictitle'][$x];
                         $boardEntryPhoto->description = $post['oldpicdesc'][$x];
-                        $boardEntryPhoto->save();
+                        $featuredPhoto = $post['featuredphoto'];
+						if($photoid==$featuredPhoto){
+							$boardEntryPhoto->featured = 1;
+						}else{
+							$boardEntryPhoto->featured = 0;
+						}
+						
+						$boardEntryPhoto->save();
                     }
                     $x++;
                 }
