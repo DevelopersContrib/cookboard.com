@@ -20,7 +20,12 @@
                     $photos = $item->boardEntryPhoto;
                     if(count($photos)>0){
                         $img = $photos[0];
-                    
+						foreach($photos as $p){
+							if($p->featured==1){
+								$img = $p;
+								break;
+							}
+						}
                         $img = $img->external?$img->photo:Yii::$app->homeUrl.$img->photo;
                         $img = '<img id="pic-'.$item->id.'" src="'.$img.'" alt="no image upload" class="img-responsive">';
                     }
