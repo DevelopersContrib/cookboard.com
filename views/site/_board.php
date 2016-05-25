@@ -14,6 +14,12 @@
                         $img = 'http://d2qcctj8epnr7y.cloudfront.net/images/jayson/cookboard/colored-icon.png';
                         if(count($photos)>0){
                             $photo = $photos[0];
+							foreach($photos as $p){
+								if($p->featured==1){
+									$photo = $p;
+									break;
+								}
+							}
                             $img = $photo->external?$photo->photo:Yii::$app->homeUrl.$photo->photo;
                         
             ?>
