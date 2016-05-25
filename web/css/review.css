@@ -1,0 +1,43 @@
+/* Start Here copy here CSs only */
+.wrap-box-review-container{
+	margin-bottom: 40px;
+	background-color: #fff;
+	position: relative;
+	padding-top: 15px;
+}
+.wrap-box-review-header{
+	position: relative;
+	border-bottom: 1px solid #ddd;
+	padding-left: 30px;
+}
+.wrap-box-title{
+	border:1px solid #ddd;
+	border-bottom: 1px solid #fff;
+	padding:15px;
+	display: inline-block;
+	margin-bottom: -1px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	background-color: #fff;
+}
+.ul-review-comment li{
+	border-bottom: 1px solid #ddd;
+	padding: 30px 15px;
+}
+.ul-review-comment i.fa{
+	color: #f77f08;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.ul-review-comment .media-body{
+	color: #999;
+}
+.ul-review-comment .media-heading{
+	color: #222;
+}
+.ul-review-comment .btn i.fa{
+	color: #fff;
+}
+.process{
+	opacity:.2;
+}
